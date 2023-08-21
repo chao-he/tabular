@@ -1,8 +1,10 @@
 import sys
 import cv2
+import json
 import numpy as np
 import paddleocr
 from glob import glob
+from config import DOC_ROOT
 
 
 def nonzero(flags):
@@ -15,7 +17,6 @@ def nonzero(flags):
             i += 1
         if s < i:
             yield s,i
-
 
 def aligment(boxes):
     width = np.max([b[0][2] for b in boxes]) if boxes else 0
@@ -41,46 +42,66 @@ def aligment(boxes):
     return rows
 
 
+def check_header(table):
+    first_column = []
+    for ix, (ymin, ymax, row) in enumerate(table):
+        if len(row) > 3:
+            xmin, xmax, text = row[0]
+            word = text.lower().split()[0].strip(".").strip("#")
+            first_column.append([ix, word])
+    for ix, word in first_column:
+        if word in ("compound", "entry", "structure", "fragment"):
+            return ix
+    for ix, word in first_column:
+        if word[:4] in ("comp", "cmpd", "cpd"):
+            return ix
+    for ix, word in first_column:
+        if word in ("id", "no",  "ex"):
+            return ix
+    return 0
+
+
 def layout_analysis(img, segment_fn):
-    try:
-        blocks = []
-        dt_boxes, rec_res, _ = segment_fn(img, cls=False)
-        for box, (text, conf) in zip(dt_boxes, rec_res):
-            tl, br = np.min(box, axis=0), np.max(box, axis=0)
-            bbox = np.concatenate([tl, br], dtype=np.int32) + [0, 1, 0, -1]
-            blocks.append([bbox, text])
-        return aligment(blocks)
-    except Exception as e:
-        print(e)
-    return []
+    blocks = []
+    dt_boxes, rec_res, _ = segment_fn(img, cls=False)
+    for box, (text, conf) in zip(dt_boxes, rec_res):
+        tl, br = np.min(box, axis=0), np.max(box, axis=0)
+        (top, left), (bottom, right) = tl, br
+        bbox = np.array(list(map(int, [top, left, bottom, right])))
+        blocks.append([bbox, text])
+    return aligment(blocks)
 
 
 def iter_imgfiles(ds):
-    for root in batch:
+    for root in ds:
         for imgfile in sorted(glob(root + "/*.full.png")):
             yield root, imgfile
 
 
-def process_batch(batch):
+def process(batch):
     print("total = ", len(batch), file=sys.stderr)
     ocr = paddleocr.PaddleOCR(use_angle_cls=True, lang='en', show_log=False)
     for imgdir, imgfile in iter_imgfiles(batch):
-        print(imgfile, file=sys.stderr)
-        image = cv2.imread(imgfile)
-        table = layout_analysis(image, ocr)
-        with open(imgfile.replace(".png", ".csv"), "w") as output:
-            for ymin, ymax, row in table:
-                text = [" ".join(text.split()) for xmin, xmax, text in row]
-                print('\t'.join(text), file=output)
+        try:
+            image = cv2.imread(imgfile)
+            table = layout_analysis(image, ocr)
+            json_path = imgfile.replace(".full.png", ".json")
+            with open(json_path, "w") as output:
+                json.dump(table, output)
+            print(json_path, file=sys.stderr)
+        except Exception as e:
+            print(json_path, e, file=sys.stderr)
 
 
-def process(nproc=10):
+def process_mp(nproc=2):
     from multiprocessing import Pool
     from more_itertools import batched
-    docs = list(glob("./tables/*"))
-    ds = batched(docs, len(docs)//nproc + nproc)
+
+    docs = sorted(list(glob(DOC_ROOT + "/*")))
+    batch = batched(docs, len(docs)//nproc + nproc)
     with Pool(nproc) as p:
-        p.map(process_batch, ds)
+        p.map(process, batch)
 
 if __name__ == "__main__":
-    process_batch(list(sorted(glob("./tables/*"))))
+    #process_mp(2)
+    process(glob(DOC_ROOT + "/*"))
