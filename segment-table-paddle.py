@@ -41,36 +41,37 @@ def aligment(boxes):
     return rows
 
 
+def layout_analysis(img, segment_fn):
+    try:
+        blocks = []
+        dt_boxes, rec_res, _ = segment_fn(img, cls=False)
+        for box, (text, conf) in zip(dt_boxes, rec_res):
+            tl, br = np.min(box, axis=0), np.max(box, axis=0)
+            bbox = np.concatenate([tl, br], dtype=np.int32) + [0, 1, 0, -1]
+            blocks.append([bbox, text])
+        return aligment(blocks)
+    except Exception as e:
+        print(e)
+    return []
 
-def dump_table(imgfile, blocks):
-    table = aligment(blocks)
-    with open(imgfile + ".csv", "w") as txt:
-        for ymin, ymax, row in table:
-            for xmin, xmax, text in row:
-                print(" ".join(text.split()), end='\t', file=txt)
-            print('', file=txt)
+
+def iter_imgfiles(ds):
+    for root in batch:
+        for imgfile in sorted(glob(root + "/*.full.png")):
+            yield root, imgfile
 
 
 def process_batch(batch):
     print("total = ", len(batch), file=sys.stderr)
     ocr = paddleocr.PaddleOCR(use_angle_cls=True, lang='en', show_log=False)
-    for root in batch:
-        for imgfile in sorted(glob(root + "/*.full.png")):
-            img = cv2.imread(imgfile)
-            if img is None:
-                continue
-            print(imgfile, img.shape, file=sys.stderr)
-            try:
-                blocks = []
-                dt_boxes, rec_res, _ = ocr(img, cls=False)
-                for box, res in zip(dt_boxes, rec_res):
-                    text, conf = res
-                    tl, br = np.min(box, axis=0), np.max(box, axis=0)
-                    bbox = np.concatenate([tl, br], dtype=np.int32) + [0, 1, 0, -1]
-                    blocks.append([bbox, text])
-                dump_table(imgfile, blocks)
-            except Exception as e:
-                print(e)
+    for imgdir, imgfile in iter_imgfiles(batch):
+        print(imgfile, file=sys.stderr)
+        image = cv2.imread(imgfile)
+        table = layout_analysis(image, ocr)
+        with open(imgfile.replace(".png", ".csv"), "w") as output:
+            for ymin, ymax, row in table:
+                text = [" ".join(text.split()) for xmin, xmax, text in row]
+                print('\t'.join(text), file=output)
 
 
 def process(nproc=10):
@@ -82,5 +83,4 @@ def process(nproc=10):
         p.map(process_batch, ds)
 
 if __name__ == "__main__":
-    #process(nproc=1)
     process_batch(list(sorted(glob("./tables/*"))))
