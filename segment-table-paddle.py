@@ -104,4 +104,5 @@ def process_mp(nproc=2):
 
 if __name__ == "__main__":
     #process_mp(2)
-    process(glob(DOC_ROOT + "/*"))
+    docs = sorted(list(glob(DOC_ROOT + "/*")))
+    process(docs)
