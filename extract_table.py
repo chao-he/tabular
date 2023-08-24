@@ -58,8 +58,8 @@ def extract_tables(source, target):
 
 
 if __name__ == "__main__":
-    #for source in glob("./papers/*.pdf"):
-    for source in open("discovery.txt"):
+    for source in glob("./papers/*.pdf"):
+    #for source in open("discovery.txt"):
         source = source.strip()
         target = "tables/" + os.path.basename(source)[:-4]
         if os.path.exists(target):

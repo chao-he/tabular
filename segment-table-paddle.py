@@ -90,7 +90,7 @@ def process(batch):
                 json.dump(table, output)
             print(json_path, file=sys.stderr)
         except Exception as e:
-            print(json_path, e, file=sys.stderr)
+            print(imgfile, e, file=sys.stderr)
 
 
 def process_mp(nproc=2):

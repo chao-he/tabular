@@ -190,7 +190,7 @@ def process(imgfile, margin, debug=False):
 
 
 if __name__ == "__main__":
-    docroot = os.path.expanduser("~/dev/tabular/tables")
-    for tblroot in glob(f"{docroot}/acs.jmedchem.2c00609"):
+    from config import DOC_ROOT
+    for tblroot in glob(f"{DOC_ROOT}/*"):
         for imgfile in sorted(glob(f"{tblroot}/*.full.png")):
             process(imgfile, 10, False)
