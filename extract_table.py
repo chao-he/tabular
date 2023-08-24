@@ -58,11 +58,9 @@ def extract_tables(source, target):
 
 
 if __name__ == "__main__":
-    for source in glob("./papers/*.pdf"):
-    #for source in open("discovery.txt"):
+    from config import PDF_ROOT
+    for source in glob(f"{PDF_ROOT}/*.pdf"):
         source = source.strip()
         target = "tables/" + os.path.basename(source)[:-4]
-        if os.path.exists(target):
-            continue
         os.makedirs(target, exist_ok=True)
         extract_tables(source, target)
