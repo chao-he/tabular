@@ -1,4 +1,5 @@
 import os
+import re
 import cv2
 import json
 import numpy as np
@@ -122,6 +123,13 @@ def normalize(text):
     return text.split()[0].lower().strip(".").strip("#")
 
 
+def normalize_text(txt):
+    if re.match('^[0-9.]+\s+[0-9.]+[abc]?$', txt):
+        a, b = txt.split()
+        txt = f"{a}±{b}"
+    syns = {"R'": "R1", "IC5o": "IC50", "IC5s": "IC50"}
+    return syns.get(txt, txt)
+
 def find_first_of(tags, pat):
     for ix, tag in tags:
         if tag in pat:
@@ -235,18 +243,23 @@ def process(imgfile, margin, debug=False):
     for i,(x,y,w,h) in enumerate(s_boxes):
         s_boxes[i] = (x,y+title_y1,w,h)
 
+    r_boxes_temp = []
     for i,(x,y,w,h) in enumerate(r_boxes):
-        r_boxes[i] = (x,y+table_y0,w,h)
+        if w > 50 and h > 50:
+            r_boxes_temp.append((x,y+table_y0,w,h))
+    r_boxes = r_boxes_temp
 
-    return maketable(r_boxes, t_boxes), title, note, r_boxes
+    table, rpos = maketable(r_boxes, t_boxes)
 
+    img = cv2.imread(imgfile)
+    for box in rpos:
+        cv2.rectangle(img, box, (0,255,0), 1)
+    for box in r_boxes:
+        cv2.rectangle(img, box, (0,0,255), 1)
+    cv2.imwrite(imgfile.replace(".full.png", ".dbg.png"), img)
 
-def miplus(txt):
-    import re
-    if re.match('^[0-9.]+\s+[0-9.]+[abc]?$', txt):
-        a, b = txt.split()
-        txt = f"{a}±{b}"
-    return txt
+    return table, title, note, r_boxes
+
 
 def maketable(r_boxes, t_boxes):
     margin = 10
@@ -268,31 +281,30 @@ def maketable(r_boxes, t_boxes):
     hl = scanline(t_boxes, axis=1)
     vl = scanline(t_boxes, axis=0)
 
-    if not hl or not vl:
-        return []
-
-    table = []
-    for i in range(len(hl)):
-        table.append([])
-        for j in range(len(vl)):
-            table[i].append([])
+    table = [[[] for j in range(len(vl))] for i in range(len(hl))]
 
     for x,y,w,h,txt in t_boxes:
         i = locate(y,y+h,hl)
         j = locate(x,x+w,vl)
-        table[i][j].append(miplus(txt))
+        table[i][j].append(normalize_text(txt))
 
+    for i in range(len(table)):
+        for j in range(len(table[i])):
+            table[i][j] = ";".join(table[i][j])
+
+    r_pos = set()
+    shl = scanline(r_boxes, axis=1)
     svl = scanline(r_boxes, axis=0)
-
-    plus = []
     for x,y,w,h in r_boxes:
-        if w < 50 or h < 50:
-            continue
-        i = locate(y,y+h,hl)
+        i = locate(y,y+h,shl)
         j = locate(x,x+w,svl)
         x0, x1 = svl[j]
-        j = locate(x0,x1,vl)
-        plus.append([i,j,x,y,w,h])
-        table[i][j] = [f"<<{x}_{y}_{w}_{h}>>"]
+        y0, y1 = shl[i]
+        r_pos.add((x0,y0,x1-x0,y1-y0))
 
-    return table
+    for x,y,w,h in r_pos:
+        i = locate(y,y+h,hl)
+        j = locate(x,x+w,vl)
+        table[i][j] = f"{x}-{y}-{w}-{h}"
+
+    return table, r_pos
