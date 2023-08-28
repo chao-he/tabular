@@ -2,19 +2,8 @@ import os
 import cv2
 import json
 import numpy as np
-from functools import cmp_to_key
 from glob import glob
 
-
-def cmp_couter(a, b):
-    xa,ya,wa,ha = a
-    xb,yb,wb,hb = b
-    if ya+ha < yb:
-        return -1
-    elif ya > yb+hb:
-        return 1
-    else:
-        return -1 if xa < xb else 1
 
 def read_binary_image(imgfile):
     img = cv2.imread(imgfile, cv2.IMREAD_GRAYSCALE)
@@ -22,20 +11,21 @@ def read_binary_image(imgfile):
     return 255-img if img is not None else None
 
 
-def blend(image, shape):
-    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, shape)
-    image = cv2.erode(image, kernel, iterations=3)
-    return cv2.dilate(image, kernel, iterations=5)
+def blur(image, ksize):
+    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (ksize,ksize))
+    image = cv2.dilate(image, kernel, iterations=3)
+    return cv2.erode(image, kernel, iterations=3)
 
 
-def detect_line(image, shape):
-    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, shape)
+def denoise(image, kshape):
+    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, kshape)
     image2 = cv2.erode(image, kernel, iterations=3)
     return cv2.dilate(image2, kernel, iterations=5)
 
+
 def remove_lines(image, lpad=50, ksize=4, hsize=50):
-    xl = detect_line(image, (min(lpad, image.shape[1]//10), 1))
-    yl = detect_line(image, (1, min(lpad, image.shape[0]//10)))
+    xl = denoise(image, (min(lpad, image.shape[1]//10), 1))
+    yl = denoise(image, (1, min(lpad, image.shape[0]//10)))
 
     lines = cv2.addWeighted(xl, 0.5, yl, 0.5, 0)
     _, lines = cv2.threshold(lines, 128, 255, cv2.THRESH_BINARY|cv2.THRESH_OTSU)
@@ -44,10 +34,19 @@ def remove_lines(image, lpad=50, ksize=4, hsize=50):
     lines = cv2.erode(~lines, kernel, iterations=2)
     _, lines = cv2.threshold(lines, 128, 255, cv2.THRESH_BINARY|cv2.THRESH_OTSU)
 
-    image = cv2.bitwise_and(image, lines)
+    return cv2.bitwise_and(image, lines)
     #image = cv2.fastNlMeansDenoising(image, h=hsize)
     #_, image = cv2.threshold(image, 128, 255, cv2.THRESH_BINARY|cv2.THRESH_OTSU)
-    return image
+    #return image
+
+
+def read_image(imgfile):
+    origin_img = cv2.imread(imgfile)
+    if origin_img is not None:
+        gray = cv2.cvtColor(origin_img, cv2.COLOR_BGR2GRAY)
+        _, gray = cv2.threshold(gray, 254, 255, cv2.THRESH_BINARY|cv2.THRESH_OTSU)
+        gray = remove_lines(255 - gray)
+        return blur(gray, 2)
 
 
 def check_intersection(boxA, boxB, margin):
@@ -94,103 +93,206 @@ def segment(img, iteration=10):
             break
     return boxes
 
+def scanline(boxes, axis=0):
+    segs, start, end = [], 0, 0
+    for b in sorted(boxes, key=lambda b: b[axis]):
+        s, t = b[axis], b[axis] + b[axis+2]
+        if s > end:
+            segs.append([start, end])
+            start, end = s, t
+        else:
+            end = max(end, t)
+    segs.append([start, end])
+    return [s for s in segs if s[1]-s[0]>0]
+
+
+def locate(xmin, xmax, lines):
+    for i in range(1, len(lines)):
+        (s0,t0), (s1,t1) = lines[i-1], lines[i]
+        if s0 <= xmin < s1:
+            if xmax <= t0 or xmin <= t0 <= xmax:
+                return i-1
+            elif xmax >= s1:
+                return i
+            else: #t0 < xmin, xmax < s1
+                return i-1
+    return len(lines)-1
 
 def normalize(text):
     return text.split()[0].lower().strip(".").strip("#")
 
 
-def check_title(table):
-    if not table:
-        return 0
-    font_width, (x0, x1, title) = 10, table[0][2][0]
-    for ix in range(1, len(table)):
-        xmin, xmax, txt = table[ix][2][0]
-        if xmin-font_width < x0 or xmax-xmin+font_width >= x1-x0:
-            continue
-        return ix
-    return 0
+def find_first_of(tags, pat):
+    for ix, tag in tags:
+        if tag in pat:
+            return ix
+
+def check_table_position(table):
+    group_of_tags = [
+        ("compound", "compounds"),
+        ("entry", "structure", "fragment"),
+        ("comp", "compd", "cmpd", "cpd"),
+        ("compa", "compb", "compc", "compda", "compdb", "compdc", "compdd"),
+        ("id", "no",  "ex")
+    ]
+
+    left, right = 0, 0
+    for _, _, row in table:
+        left, right = min(left, row[0][0]), max(right, row[-1][1])
+    table_width = right - left
+
+    title_last_row, table_first_row, table_last_row = -1, -1, -1
+
+    title_h = table[0][1] - table[0][0]
+    for i, (ymin,ymax,row) in enumerate(table):
+        xmin, xmax, txt = row[0]
+        w, h = xmax-xmin, ymax-ymin
+        if h < 1.1*title_h and xmin < left+10 and (len(row)<=2 or w>table_width*0.65):
+            title_last_row = i
+        break
+
+    for i, (ymin,ymax,row) in enumerate(table):
+        if i > title_last_row and len(row) > 2:
+            table_first_row = i
+
+    first_column = []
+    for i, (ymin,ymax,row) in enumerate(table):
+        if i > title_last_row and len(row) > 1:
+            first_column.append([i, normalize(row[0][2])])
+
+    for tags in group_of_tags:
+        row = find_first_of(first_column, tags)
+        if row is not None:
+            table_first_row = row
+            break
+
+    table_last_row = table_first_row
+    for i, (ymin,ymax,row) in enumerate(table):
+        if i > table_first_row:
+            xmin, xmax, txt = row[0]
+            if xmin < left+10 and len(row) < 3:
+                break
+            table_last_row = i
+
+    return title_last_row, table_first_row, table_last_row + 1
 
 
-def check_header(table):
-    first_column = [(i, normalize(d[2][0][2])) for i,d in enumerate(table) if len(d[2]) > 3]
-    for ix, word in first_column:
-        if word in ("compound", "entry", "structure", "fragment"):
-            return ix
-    for ix, word in first_column:
-        if word[:4] in ("comp", "cmpd", "cpd"):
-            return ix
-    for ix, word in first_column:
-        if word in ("id", "no",  "ex"):
-            return ix
-    return -1
+def read_layout(layout_path):
+    layout = json.load(layout_path)
+    title_ix, table_ix, note_ix = check_table_position(layout)
+
+    t_boxes = []
+
+    #print('---------')
+    for y0, y1, row in layout[table_ix:note_ix]:
+        for x0, x1, txt in row:
+            t_boxes.append([x0, y0, x1-x0, y1-y0, txt])
+    #       print(txt, end='\t')
+    #    print()
+    #print('---------')
+
+    return layout, t_boxes, title_ix, table_ix, note_ix
+
 
 def process(imgfile, margin, debug=False):
-    origin_img = cv2.imread(imgfile)
+    layout_path = open(imgfile.replace(".full.png", ".json"))
+    layout, t_boxes, title_ix, table_ix, note_ix = read_layout(layout_path)
 
-    gray = cv2.cvtColor(origin_img, cv2.COLOR_BGR2GRAY)
-    _, gray = cv2.threshold(gray, 128, 255, cv2.THRESH_BINARY|cv2.THRESH_OTSU)
-    gray = remove_lines(255 - gray)
+    if title_ix < 0 or table_ix < 0:
+        return
 
-    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (2,2))
-    gray = cv2.dilate(gray, kernel, iterations=3)
-    gray = cv2.erode(gray, kernel, iterations=3)
+    image = read_image(imgfile)
+    for i, (ymin, ymax, row) in enumerate(layout):
+        if i <= title_ix or i >= table_ix:
+            for xmin, xmax, txt in row:
+                x0 = max(0, xmin-1)
+                y0 = max(0, ymin-1)
+                x1 = min(image.shape[1], xmax+1)
+                y1 = min(image.shape[0], ymax+1)
+                image[y0:y1,x0:x1] = 0
 
-    layout = json.load(open(imgfile.replace(".full.png", ".json")))
+    title = []
+    for i in range(title_ix+1):
+        ymin, ymax, row = layout[i]
+        for xmin, xmax, txt in row:
+            title.append(txt)
+    title = " ".join(title)
 
-    scaff_ix = max(0, check_title(layout))
-    table_ix = max(scaff_ix, check_header(layout))
+    note = []
+    for i in range(note_ix, len(layout)):
+        ymin, ymax, row = layout[i]
+        for xmin, xmax, txt in row:
+            note.append(txt)
+    note = " ".join(note)
 
-    for y0, y1, row in layout[:scaff_ix]:
-        gray[y0:y1,:] = 0
+    title_y1 = layout[title_ix][1]
+    table_y0 = layout[table_ix][0]
+    table_y1 = layout[note_ix][0] if note_ix < len(layout) else image.shape[0]
 
-    table_start = layout[table_ix][0]
-    for y0, y1, row in layout[table_ix:]:
-        for x0, x1, txt in row:
-            gray[max(0,y0-1):y1+1,max(0,x0-1):x1+1] = 0
+    s_boxes = segment(image[title_y1:table_y0,])
+    r_boxes = segment(image[table_y0:table_y1,])
 
-    txt_boxes, s_boxes, r_boxes = [], [], []
+    for i,(x,y,w,h) in enumerate(s_boxes):
+        s_boxes[i] = (x,y+title_y1,w,h)
 
-    for y0, y1, row in layout:
-        for x0, x1, txt in row:
-            txt_boxes.append([x0, y0, x1-x0, y1-y0])
+    for i,(x,y,w,h) in enumerate(r_boxes):
+        r_boxes[i] = (x,y+table_y0,w,h)
 
-    boxes_a = segment(gray[:table_start,:])
-    boxes_b = segment(gray[table_start:,:])
-
-    for x,y,w,h in boxes_a:
-        if w > 50 and h > 50:
-            s_boxes.append([x,y,w,h])
-
-    for x,y,w,h in boxes_b:
-        if w > 50 and h > 50:
-            r_boxes.append([x,y+table_start,w,h])
-
-    for i in range(len(r_boxes)):
-        for j in range(len(txt_boxes)):
-            xa,ya,wa,ha = r_boxes[i]
-            xb,yb,wb,hb = txt_boxes[j]
-            if check_intersection(r_boxes[i], txt_boxes[j], margin):
-                x1,x2 = min(xa, xb), max(xa+wa, xb+wb)
-                y1,y2 = min(ya, yb), max(ya+ha, yb+hb)
-                r_boxes[i] = [x1, y1, x2-x1, y2-y1]
-                txt_boxes[j] = [0,0,0,0]
+    return maketable(r_boxes, t_boxes), title, note, r_boxes
 
 
-    for box in s_boxes:
-        cv2.rectangle(origin_img, box, (0,0,255), 2)
+def miplus(txt):
+    import re
+    if re.match('^[0-9.]+\s+[0-9.]+[abc]?$', txt):
+        a, b = txt.split()
+        txt = f"{a}±{b}"
+    return txt
 
-    for box in r_boxes:
-        cv2.rectangle(origin_img, box, (0,255,0), 2)
+def maketable(r_boxes, t_boxes):
+    margin = 10
 
-    for box in txt_boxes:
-        cv2.rectangle(origin_img, box, (128,128,128), 1)
+    #removed = set()
+    #for i in range(len(r_boxes)):
+    #    for j in range(len(t_boxes)):
+    #        xa,ya,wa,ha = r_boxes[i]
+    #        xb,yb,wb,hb,_ = t_boxes[j]
+    #        if check_intersection(r_boxes[i], t_boxes[j], margin):
+    #            x1,x2 = min(xa, xb), max(xa+wa, xb+wb)
+    #            y1,y2 = min(ya, yb), max(ya+ha, yb+hb)
+    #            r_boxes[i] = [x1, y1, x2-x1, y2-y1]
+    #            removed.add(j)
 
-    cv2.imwrite(imgfile.replace(".full.png", ".seg.png"), origin_img)
-    print(imgfile)
+    #for j in reversed(sorted(removed)):
+    #    del t_boxes[j]
 
+    hl = scanline(t_boxes, axis=1)
+    vl = scanline(t_boxes, axis=0)
 
-if __name__ == "__main__":
-    from config import DOC_ROOT
-    for tblroot in glob(f"{DOC_ROOT}/*"):
-        for imgfile in sorted(glob(f"{tblroot}/*.full.png")):
-            process(imgfile, 10, False)
+    if not hl or not vl:
+        return []
+
+    table = []
+    for i in range(len(hl)):
+        table.append([])
+        for j in range(len(vl)):
+            table[i].append([])
+
+    for x,y,w,h,txt in t_boxes:
+        i = locate(y,y+h,hl)
+        j = locate(x,x+w,vl)
+        table[i][j].append(miplus(txt))
+
+    svl = scanline(r_boxes, axis=0)
+
+    plus = []
+    for x,y,w,h in r_boxes:
+        if w < 50 or h < 50:
+            continue
+        i = locate(y,y+h,hl)
+        j = locate(x,x+w,svl)
+        x0, x1 = svl[j]
+        j = locate(x0,x1,vl)
+        plus.append([i,j,x,y,w,h])
+        table[i][j] = [f"<<{x}_{y}_{w}_{h}>>"]
+
+    return table
