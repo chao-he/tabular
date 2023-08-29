@@ -67,9 +67,9 @@ def layout_analysis(img, segment_fn):
     for box, (text, conf) in zip(dt_boxes, rec_res):
         tl, br = np.min(box, axis=0), np.max(box, axis=0)
         (top, left), (bottom, right) = tl, br
-        bbox = np.array(list(map(int, [top, left, bottom, right])))
-        blocks.append([bbox, text])
-    return aligment(blocks)
+        #bbox = np.array(list(map(int, [top, left, bottom, right])))
+        blocks.append([int(top), int(left), int(bottom), int(right), text])
+    return blocks
 
 
 def iter_imgfiles(ds):
