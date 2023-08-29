@@ -1,6 +1,7 @@
 import sys
 import cv2
 import json
+import math
 import numpy as np
 import paddleocr
 from glob import glob
@@ -65,10 +66,9 @@ def layout_analysis(img, segment_fn):
     blocks = []
     dt_boxes, rec_res, _ = segment_fn(img, cls=False)
     for box, (text, conf) in zip(dt_boxes, rec_res):
-        tl, br = np.min(box, axis=0), np.max(box, axis=0)
-        (top, left), (bottom, right) = tl, br
-        #bbox = np.array(list(map(int, [top, left, bottom, right])))
-        blocks.append([int(top), int(left), int(bottom), int(right), text])
+        (left, top), (right, bottom) = np.min(box, axis=0), np.max(box, axis=0)
+        #bbox = np.array(list(map(int, [left, top, right, bottom])))
+        blocks.append([math.floor(left), math.floor(top), math.ceil(right), math.ceil(bottom), text])
     return blocks
 
 
