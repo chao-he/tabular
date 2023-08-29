@@ -31,7 +31,10 @@ if __name__ == "__main__":
             if not table:
                 continue
 
-            tables.append({"source": imgfile, "title": title, "content": table, "note": note})
+            tables.append({"source": os.path.abspath(imgfile.replace(".full.png", ".dbg.png")),
+                           "title": title,
+                           "content": table,
+                           "note": note})
 
             for attr in table[0]:
                 if attr not in attributes:
@@ -54,6 +57,8 @@ if __name__ == "__main__":
 
         #tables.append({"source": '', "title": '', "content": table, "note": ''})
 
+        print(imgfile)
         html = tpl.render(tables=tables)
         with open(f"html/{doi}.html", "w") as output:
+            print(doi)
             output.write(html)

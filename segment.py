@@ -80,7 +80,6 @@ def get_bbox(img):
     contours, _ = cv2.findContours(img, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     return [cv2.boundingRect(c) for c in contours]
 
-
 def segment(img, iteration=10):
     kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (4,4))
     img = cv2.dilate(img, kernel, iterations=3)
@@ -106,7 +105,6 @@ def scanline(boxes, axis=0):
     segs.append([start, end])
     return [s for s in segs if s[1]-s[0]>0]
 
-
 def locate(xmin, xmax, lines):
     for i in range(1, len(lines)):
         (s0,t0), (s1,t1) = lines[i-1], lines[i]
@@ -127,13 +125,50 @@ def normalize_text(txt):
     if re.match('^[0-9.]+\s+[0-9.]+[abc]?$', txt):
         a, b = txt.split()
         txt = f"{a}±{b}"
-    syns = {"R'": "R1", "IC5o": "IC50", "IC5s": "IC50"}
+    txt = re.sub(u"[1I]C[5sS][0oO]", "IC50", txt)
+    syns = {"R'": "R1"}
     return syns.get(txt, txt)
 
 def find_first_of(tags, pat):
     for ix, tag in tags:
         if tag in pat:
             return ix
+
+
+def nonzero(flags):
+    i, e = 0, len(flags)
+    while i < len(flags):
+        while i < e and flags[i] == 0:
+            i += 1
+        s = i
+        while i < e and flags[i] == 1:
+            i += 1
+        if s < i:
+            yield s,i
+
+def aligment(boxes):
+    width = np.max([b[2] for b in boxes]) if boxes else 0
+    height = np.max([b[3] for b in boxes]) if boxes else 0
+
+    flags = np.zeros(height)
+    for x1,y1,x2,y2,t in boxes:
+        flags[y1:y2] = 1
+
+    rows = []
+    for ymin, ymax in nonzero(flags):
+        cells, mask = [], np.zeros(width)
+        for x,y,w,h,t in boxes:
+            if y>=ymin and h<=ymax:
+                mask[x:w] = 1
+                cells.append([x,y,w,h,t])
+        columns = []
+        for xmin, xmax in nonzero(mask):
+            column = [(y, t) for x,y,w,h,t in cells if x>=xmin and w<=xmax]
+            text = " ".join([t for y, t in sorted(column)])
+            columns.append([xmin, xmax, text])
+        rows.append([ymin, ymax, columns])
+    return rows
+
 
 def check_table_position(table):
     group_of_tags = [
@@ -187,24 +222,21 @@ def check_table_position(table):
 
 def read_layout(layout_path):
     layout = json.load(layout_path)
+    layout = aligment(layout)
+
     title_ix, table_ix, note_ix = check_table_position(layout)
 
     t_boxes = []
-
-    #print('---------')
     for y0, y1, row in layout[table_ix:note_ix]:
         for x0, x1, txt in row:
             t_boxes.append([x0, y0, x1-x0, y1-y0, txt])
-    #       print(txt, end='\t')
-    #    print()
-    #print('---------')
 
     return layout, t_boxes, title_ix, table_ix, note_ix
 
 
 def process(imgfile, margin, debug=False):
-    layout_path = open(imgfile.replace(".full.png", ".json"))
-    layout, t_boxes, title_ix, table_ix, note_ix = read_layout(layout_path)
+    layout_path = imgfile.replace(".full.png", ".json")
+    layout, t_boxes, title_ix, table_ix, note_ix = read_layout(open(layout_path))
 
     if title_ix < 0 or table_ix < 0:
         return
@@ -237,74 +269,85 @@ def process(imgfile, margin, debug=False):
     table_y0 = layout[table_ix][0]
     table_y1 = layout[note_ix][0] if note_ix < len(layout) else image.shape[0]
 
-    s_boxes = segment(image[title_y1:table_y0,])
-    r_boxes = segment(image[table_y0:table_y1,])
+    s_boxes_temp = segment(image[title_y1:table_y0,])
+    r_boxes_temp = segment(image[table_y0:table_y1,])
 
-    for i,(x,y,w,h) in enumerate(s_boxes):
-        s_boxes[i] = (x,y+title_y1,w,h)
-
-    r_boxes_temp = []
-    for i,(x,y,w,h) in enumerate(r_boxes):
+    s_boxes = []
+    for i,(x,y,w,h) in enumerate(s_boxes_temp):
+        y += title_y1
         if w > 50 and h > 50:
-            r_boxes_temp.append((x,y+table_y0,w,h))
-    r_boxes = r_boxes_temp
+            s_boxes.append((x,y,w,h))
 
-    table, rpos = maketable(r_boxes, t_boxes)
+    image = read_binary_image(imgfile)
+    r_boxes = []
+    for x,y,w,h in r_boxes_temp:
+        y += table_y0
+        if w > 50 and h > 50:
+            i, j = 0, 0
+            for i in range(w):
+                if np.sum(image[y:y+h,x+i]) > 0:
+                    break
+            for j in range(w):
+                if np.sum(image[y:y+h,x+w-j]) > 0:
+                    break
+            r_boxes.append((x+i,y,w-i-j,h))
+
+    table = maketable(r_boxes, t_boxes)
 
     img = cv2.imread(imgfile)
-    for box in rpos:
-        cv2.rectangle(img, box, (0,255,0), 1)
-    for box in r_boxes:
-        cv2.rectangle(img, box, (0,0,255), 1)
+    for x,y,w,h in s_boxes:
+        cv2.rectangle(img, (x,y,w,h), (0,0,255), 2)
+    for x,y,w,h in r_boxes:
+        cv2.rectangle(img, (x,y,w,h), (0,255,0), 2)
+    for x,y,w,h,t in t_boxes:
+        cv2.rectangle(img, (x,y,w,h), (255,0,0), 1)
     cv2.imwrite(imgfile.replace(".full.png", ".dbg.png"), img)
 
     return table, title, note, r_boxes
 
 
 def maketable(r_boxes, t_boxes):
-    margin = 10
+    removed = set()
+    for i in range(len(r_boxes)):
+        for j in range(len(t_boxes)):
+            xa,ya,wa,ha = r_boxes[i][:4]
+            xb,yb,wb,hb = t_boxes[j][:4]
+            if check_intersection(r_boxes[i], t_boxes[j], 1):
+                x1,x2 = min(xa, xb), max(xa+wa, xb+wb)
+                y1,y2 = min(ya, yb), max(ya+ha, yb+hb)
+                r_boxes[i] = [x1, y1, x2-x1, y2-y1]
+                removed.add(j)
 
-    #removed = set()
-    #for i in range(len(r_boxes)):
-    #    for j in range(len(t_boxes)):
-    #        xa,ya,wa,ha = r_boxes[i]
-    #        xb,yb,wb,hb,_ = t_boxes[j]
-    #        if check_intersection(r_boxes[i], t_boxes[j], margin):
-    #            x1,x2 = min(xa, xb), max(xa+wa, xb+wb)
-    #            y1,y2 = min(ya, yb), max(ya+ha, yb+hb)
-    #            r_boxes[i] = [x1, y1, x2-x1, y2-y1]
-    #            removed.add(j)
+    shl = scanline(r_boxes, axis=1)
+    svl = scanline(r_boxes, axis=0)
+    for k, (x,y,w,h) in enumerate(r_boxes):
+        j = locate(x,x+w,svl)
+        x0, x1 = svl[j]
+        i = locate(y,y+h,shl)
+        y0, y1 = shl[i]
+        r_boxes[k] = [x0,y0,x1-x0,y1-y0]
 
-    #for j in reversed(sorted(removed)):
-    #    del t_boxes[j]
+    for j in reversed(sorted(removed)):
+        del t_boxes[j]
 
-    hl = scanline(t_boxes, axis=1)
-    vl = scanline(t_boxes, axis=0)
+    all_boxes = t_boxes + r_boxes
+    hl = scanline(t_boxes + r_boxes, axis=1)
+    vl = scanline(t_boxes + r_boxes, axis=0)
 
     table = [[[] for j in range(len(vl))] for i in range(len(hl))]
 
-    for x,y,w,h,txt in t_boxes:
+    for x,y,w,h,t in t_boxes:
         i = locate(y,y+h,hl)
         j = locate(x,x+w,vl)
-        table[i][j].append(normalize_text(txt))
+        table[i][j].append(normalize_text(t))
+
+    for x,y,w,h in r_boxes:
+        i = locate(y,y+h,hl)
+        j = locate(x,x+w,vl)
+        table[i][j].append("[CCO]")
 
     for i in range(len(table)):
         for j in range(len(table[i])):
             table[i][j] = ";".join(table[i][j])
 
-    r_pos = set()
-    shl = scanline(r_boxes, axis=1)
-    svl = scanline(r_boxes, axis=0)
-    for x,y,w,h in r_boxes:
-        i = locate(y,y+h,shl)
-        j = locate(x,x+w,svl)
-        x0, x1 = svl[j]
-        y0, y1 = shl[i]
-        r_pos.add((x0,y0,x1-x0,y1-y0))
-
-    for x,y,w,h in r_pos:
-        i = locate(y,y+h,hl)
-        j = locate(x,x+w,vl)
-        table[i][j] = f"{x}-{y}-{w}-{h}"
-
-    return table, r_pos
+    return table
