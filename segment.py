@@ -235,7 +235,7 @@ def read_layout(layout_path):
     return layout, t_boxes, title_ix, table_ix, note_ix
 
 
-def process(imgfile, margin, debug=False):
+def process(imgfile, debug=False):
     layout_path = imgfile.replace(".full.png", ".json")
     layout, t_boxes, title_ix, table_ix, note_ix = read_layout(open(layout_path))
 
