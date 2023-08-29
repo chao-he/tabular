@@ -26,9 +26,11 @@ if __name__ == "__main__":
         for imgfile in sorted(glob(f"{doc}/*.full.png")):
             result = process(imgfile, 10, False)
             if result is None:
+                print(imgfile, "fail")
                 continue
             table, title, note, _ = result
             if not table:
+                print(imgfile, "empty")
                 continue
 
             tables.append({"source": os.path.abspath(imgfile.replace(".full.png", ".dbg.png")),
@@ -44,6 +46,7 @@ if __name__ == "__main__":
                 for j in range(len(table[i])):
                     cid, attr = table[i][0], table[0][j]
                     compounds[cid][attr] = table[i][j]
+            print(imgfile, "done")
 
 
         attributes = [a for a in attributes if not re.match("^R[0-9']*$", a)]
@@ -57,8 +60,6 @@ if __name__ == "__main__":
 
         #tables.append({"source": '', "title": '', "content": table, "note": ''})
 
-        print(imgfile)
         html = tpl.render(tables=tables)
         with open(f"html/{doi}.html", "w") as output:
-            print(doi)
             output.write(html)

@@ -184,7 +184,7 @@ def check_table_position(table):
         left, right = min(left, row[0][0]), max(right, row[-1][1])
     table_width = right - left
 
-    title_last_row, table_first_row, table_last_row = -1, -1, -1
+    title_last_row, table_first_row, table_last_row = 0, -1, -1
 
     title_h = table[0][1] - table[0][0]
     for i, (ymin,ymax,row) in enumerate(table):
@@ -192,7 +192,8 @@ def check_table_position(table):
         w, h = xmax-xmin, ymax-ymin
         if h < 1.1*title_h and xmin < left+10 and (len(row)<=2 or w>table_width*0.65):
             title_last_row = i
-        break
+        else:
+            break
 
     for i, (ymin,ymax,row) in enumerate(table):
         if i > title_last_row and len(row) > 2:
@@ -217,7 +218,7 @@ def check_table_position(table):
                 break
             table_last_row = i
 
-    return title_last_row, table_first_row, table_last_row + 1
+    return 0, table_first_row, table_last_row + 1
 
 
 def read_layout(layout_path):
@@ -239,6 +240,7 @@ def process(imgfile, margin, debug=False):
     layout, t_boxes, title_ix, table_ix, note_ix = read_layout(open(layout_path))
 
     if title_ix < 0 or table_ix < 0:
+        print(f"{imgfile}  ti = {title_ix}, hi = {table_ix}")
         return
 
     image = read_image(imgfile)
@@ -251,11 +253,12 @@ def process(imgfile, margin, debug=False):
                 y1 = min(image.shape[0], ymax+1)
                 image[y0:y1,x0:x1] = 0
 
-    title = []
-    for i in range(title_ix+1):
+    title, left = [], layout[0][2][0][0]
+    for i in range(table_ix):
         ymin, ymax, row = layout[i]
         for xmin, xmax, txt in row:
-            title.append(txt)
+            if xmin < left + 100 and txt not in ["R", "R1", "R2", "NH", "H", "CH3"]:
+                title.append(txt)
     title = " ".join(title)
 
     note = []
@@ -275,7 +278,7 @@ def process(imgfile, margin, debug=False):
     s_boxes = []
     for i,(x,y,w,h) in enumerate(s_boxes_temp):
         y += title_y1
-        if w > 50 and h > 50:
+        if w > 100 and h > 100:
             s_boxes.append((x,y,w,h))
 
     image = read_binary_image(imgfile)
