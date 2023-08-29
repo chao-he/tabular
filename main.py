@@ -22,7 +22,7 @@ if __name__ == "__main__":
             try:
                 table, title, note, compounds = process(imgfile)
                 tables.append({
-                    "source": os.path.abspath(imgfile.replace(".full.png", ".dbg.png")),
+                    "source": os.path.basename(imgfile.replace(".full.png", ".dbg.png")),
                     "title": title,
                     "content": table,
                     "note": note
@@ -30,4 +30,4 @@ if __name__ == "__main__":
                 print(imgfile, "done")
             except Exception as e:
                 print(imgfile, e)
-        gen_html(f"html/{doi}.html", tables)
+        gen_html(f"{doc}/index.html", tables)
