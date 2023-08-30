@@ -223,7 +223,7 @@ def check_table_position(table):
 
 def read_layout(layout_path):
     layout = json.load(layout_path)
-    layout = aligment(layout)
+    #layout = aligment(layout)
 
     title_ix, table_ix, note_ix = check_table_position(layout)
 
