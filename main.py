@@ -1,5 +1,6 @@
 import os
 import re
+import cv2
 import sys
 import json
 import jinja2
@@ -27,13 +28,39 @@ def doc_to_html(doc):
     tables = []
     for imgfile in sorted(glob(f"{doc}/*.full.png")):
         try:
-            table, title, note, compounds = process(imgfile)
+            table, title, note, s_boxes, r_boxes, t_boxes = process(imgfile)
+
+            image = cv2.imread(imgfile, 1)
+            for x,y,w,h in s_boxes:
+                fpath = imgfile.replace(".full.png", f".s.{x}_{y}_{w}_{h}.png")
+                cv2.imwrite(fpath, image[y:y+h,x:x+w])
+            for x,y,w,h in r_boxes:
+                fpath = imgfile.replace(".full.png", f".r.{x}_{y}_{w}_{h}.png")
+                cv2.imwrite(fpath, image[y:y+h,x:x+w])
+
+            image = cv2.imread(imgfile)
+            r, g, b = (0,0,255), (0,255,0), (255,0,0)
+            for x,y,w,h in s_boxes:
+                cv2.rectangle(image, (x,y,w,h), r, 2)
+            for x,y,w,h in r_boxes:
+                cv2.rectangle(image, (x,y,w,h), g, 2)
+            for x,y,w,h,t in t_boxes:
+                cv2.rectangle(image, (x,y,w,h), b, 1)
+            cv2.imwrite(imgfile.replace(".full.png", ".dbg.png"), image)
+
             tables.append({
                 "source": os.path.basename(imgfile.replace(".full.png", ".dbg.png")),
                 "title": title,
                 "content": table,
                 "note": note
             })
+
+            for i in range(len(table)):
+                for j in range(len(table[i])):
+                    if isinstance(table[i][j], list):
+                        x,y,w,h = table[i][j]
+                        src = os.path.basename(imgfile.replace(".full.png", f".r.{x}_{y}_{w}_{h}.png"))
+                        table[i][j] = f"<img width=\"{w//3}\" src=\"{src}\"/>"
             print(imgfile, "done")
         except Exception as e:
             import traceback

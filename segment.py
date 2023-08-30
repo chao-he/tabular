@@ -287,6 +287,7 @@ def process(imgfile, debug=False):
             r_boxes.append((x,y,w,h))
 
     merge_box(r_boxes, t_boxes)
+
     table = maketable(r_boxes, t_boxes)
 
     rj = match_column(r_boxes, t_boxes)
@@ -295,12 +296,8 @@ def process(imgfile, debug=False):
         if cname in ("R", "R'", "R1", "R2", "R3", "R4", "X", "Y"):
             if j not in rj:
                 rj.append(j)
-    for j in rj:
-        for i in range(len(table)):
-            table[i][j] = ''
 
-    draw_box(imgfile, s_boxes, r_boxes, t_boxes)
-    return table, title, note, r_boxes
+    return table, title, note, s_boxes, r_boxes, t_boxes
 
 def match_column(r_boxes, t_boxes):
     rvl = scanline(r_boxes, axis=0)
@@ -313,17 +310,6 @@ def match_column(r_boxes, t_boxes):
                 break
     return rj
 
-
-def draw_box(imgfile, s_boxes, r_boxes, t_boxes):
-    img = cv2.imread(imgfile)
-    r, g, b = (0,0,255), (0,255,0), (255,0,0)
-    for x,y,w,h in s_boxes:
-        cv2.rectangle(img, (x,y,w,h), r, 2)
-    for x,y,w,h in r_boxes:
-        cv2.rectangle(img, (x,y,w,h), g, 2)
-    for x,y,w,h,t in t_boxes:
-        cv2.rectangle(img, (x,y,w,h), b, 1)
-    cv2.imwrite(imgfile.replace(".full.png", ".dbg.png"), img)
 
 def merge_box(r_boxes, t_boxes):
     valign(r_boxes)
@@ -369,13 +355,13 @@ def maketable(r_boxes, t_boxes, shrink=0.1):
         j = locate(x,x+w,vl)
         table[i][j].append(normalize_text(t))
 
-    for c,(x,y,w,h) in enumerate(r_boxes):
-        i = locate(y,y+h,hl)
-        j = locate(x,x+w,vl)
-        table[i][j].append(f"mol.{c}")
-
     for i in range(len(table)):
         for j in range(len(table[i])):
             table[i][j] = ';'.join(table[i][j])
+
+    for c,(x,y,w,h) in enumerate(r_boxes):
+        i = locate(y,y+h,hl)
+        j = locate(x,x+w,vl)
+        table[i][j] = [x,y,w,h]
 
     return table
