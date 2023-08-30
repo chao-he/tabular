@@ -36,7 +36,8 @@ def doc_to_html(doc):
             })
             print(imgfile, "done")
         except Exception as e:
-            print(imgfile, e)
+            import traceback
+            traceback.print_exc()
     gen_html(f"{doc}/index.html", tables)
 
 
@@ -75,9 +76,11 @@ def extract_compounds(doc):
 
 
 if __name__ == "__main__":
-    output = open("33k-dataset.jsonl", "w")
-    for doc in glob(DOC_ROOT + "/*"):
-        compounds = extract_compounds(doc)
-        if compounds:
-            print(json.dumps(compounds), file=output)
-    output.close()
+    for doc in glob("./tables/*"):
+        doc_to_html(doc)
+    #output = open("33k-dataset.jsonl", "w")
+    #for doc in glob(DOC_ROOT + "/*"):
+    #    compounds = extract_compounds(doc)
+    #    if compounds:
+    #        print(json.dumps(compounds), file=output)
+    #output.close()
