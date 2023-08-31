@@ -11,63 +11,6 @@ from collections import defaultdict
 from config import DOC_ROOT
 
 
-def normalize_smiles(smiles):
-    try:
-        return Chem.MolToSmiles(Chem.MolFromSmiles(smiles))
-    except Exception as e:
-        return None
-
-def gen_html(path, tables):
-    tpl = jinja2.Template(open("html/template.html").read())
-    html = tpl.render(tables=tables)
-    with open(path, "w") as output:
-        output.write(html)
-
-def doc_to_html(doc):
-    doi = doc.split("/")[-1]
-    tables = []
-    for imgfile in sorted(glob(f"{doc}/*.full.png")):
-        try:
-            table, title, note, s_boxes, r_boxes, t_boxes = process(imgfile)
-
-            image = cv2.imread(imgfile, 1)
-            for x,y,w,h in s_boxes:
-                fpath = imgfile.replace(".full.png", f".s.{x}_{y}_{w}_{h}.png")
-                cv2.imwrite(fpath, image[y:y+h,x:x+w])
-            for x,y,w,h in r_boxes:
-                fpath = imgfile.replace(".full.png", f".r.{x}_{y}_{w}_{h}.png")
-                cv2.imwrite(fpath, image[y:y+h,x:x+w])
-
-            image = cv2.imread(imgfile)
-            r, g, b = (0,0,255), (0,255,0), (255,0,0)
-            for x,y,w,h in s_boxes:
-                cv2.rectangle(image, (x,y,w,h), r, 2)
-            for x,y,w,h in r_boxes:
-                cv2.rectangle(image, (x,y,w,h), g, 2)
-            for x,y,w,h,t in t_boxes:
-                cv2.rectangle(image, (x,y,w,h), b, 1)
-            cv2.imwrite(imgfile.replace(".full.png", ".dbg.png"), image)
-
-            tables.append({
-                "source": os.path.basename(imgfile.replace(".full.png", ".dbg.png")),
-                "title": title,
-                "content": table,
-                "note": note
-            })
-
-            for i in range(len(table)):
-                for j in range(len(table[i])):
-                    if isinstance(table[i][j], list):
-                        x,y,w,h = table[i][j]
-                        src = os.path.basename(imgfile.replace(".full.png", f".r.{x}_{y}_{w}_{h}.png"))
-                        table[i][j] = f"<img width=\"{w//3}\" src=\"{src}\"/>"
-            print(imgfile, "done")
-        except Exception as e:
-            import traceback
-            traceback.print_exc()
-    gen_html(f"{doc}/index.html", tables)
-
-
 def extract_compounds(doc):
     cpd_path = f"{doc}/compounds.txt"
     if not os.path.exists(cpd_path):
@@ -102,12 +45,64 @@ def extract_compounds(doc):
     return compounds
 
 
+
+def normalize_smiles(smiles):
+    try:
+        return Chem.MolToSmiles(Chem.MolFromSmiles(smiles))
+    except Exception as e:
+        return None
+
+
+def parse_table(doc):
+    tables = []
+    for imgfile in sorted(glob(f"{doc}/*.full.png")):
+        try:
+            table, title, note, s_boxes, r_boxes, t_boxes = process(imgfile)
+
+            image = cv2.imread(imgfile, 1)
+            for x,y,w,h in s_boxes:
+                fpath = makepath(imgfile, f".s.{x}_{y}_{w}_{h}.png")
+                cv2.imwrite(fpath, image[y:y+h,x:x+w])
+            for x,y,w,h in r_boxes:
+                fpath = makepath(imgfile, f".r.{x}_{y}_{w}_{h}.png")
+                cv2.imwrite(fpath, image[y:y+h,x:x+w])
+
+            image = cv2.imread(imgfile)
+            r, g, b = (0,0,255), (0,255,0), (255,0,0)
+            for x,y,w,h in s_boxes:
+                cv2.rectangle(image, (x,y,w,h), r, 2)
+            for x,y,w,h in r_boxes:
+                cv2.rectangle(image, (x,y,w,h), g, 2)
+            for x,y,w,h,t in t_boxes:
+                cv2.rectangle(image, (x,y,w,h), b, 1)
+            cv2.imwrite(makepath(imgfile, ".dbg.png"), image)
+
+            tables.append({
+                "title": title, "note": note, "content": table,
+                "source": makepath(imgfile, ".dbg.png"),
+            })
+
+            nr_row, nr_col = len(table), len(table[0])
+            for i in range(nr_row):
+                for j in range(nr_col):
+                    if isinstance(table[i][j], list):
+                        x,y,w,h = table[i][j]
+                        src = makepath(imgfile, f".r.{x}_{y}_{w}_{h}.png")
+                        table[i][j] = f"<img width=\"{w//3}\" src=\"{src}\"/>"
+            print(imgfile, nr_row, nr_col, "done")
+        except Exception as e:
+            import traceback
+            traceback.print_exc()
+    return tables
+
+def makepath(imgfile, suffix):
+    return os.path.abspath(imgfile.replace(".full.png", suffix))
+
+
 if __name__ == "__main__":
-    for doc in glob("./tables/*"):
-        doc_to_html(doc)
-    #output = open("33k-dataset.jsonl", "w")
-    #for doc in glob(DOC_ROOT + "/*"):
-    #    compounds = extract_compounds(doc)
-    #    if compounds:
-    #        print(json.dumps(compounds), file=output)
-    #output.close()
+    tpl = jinja2.Template(open("html/template.html").read())
+    for doc_root in glob("./tables/*"):
+        tables = parse_table(doc_root)
+        html = tpl.render(tables=tables)
+        with open(f"{doc_root}/index.html", "w") as output:
+            output.write(html)
