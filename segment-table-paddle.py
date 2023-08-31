@@ -1,3 +1,4 @@
+import os
 import sys
 import cv2
 import json
@@ -68,8 +69,9 @@ def layout_analysis(img, segment_fn):
     for box, (text, conf) in zip(dt_boxes, rec_res):
         (left, top), (right, bottom) = np.min(box, axis=0), np.max(box, axis=0)
         #bbox = np.array(list(map(int, [left, top, right, bottom])))
-        blocks.append([math.floor(left), math.floor(top), math.ceil(right), math.ceil(bottom), text])
-    return blocks
+        bbox = math.floor(left), math.floor(top), math.ceil(right), math.ceil(bottom)
+        blocks.append([bbox, text])
+    return aligment(blocks)
 
 
 def iter_imgfiles(ds):
@@ -80,15 +82,16 @@ def iter_imgfiles(ds):
 
 def process(batch):
     print("total = ", len(batch), file=sys.stderr)
-    ocr = paddleocr.PaddleOCR(use_angle_cls=True, lang='en', show_log=False)
+    ocr = paddleocr.PaddleOCR(use_angle_cls=True, lang='latin', det_box_type='poly', show_log=False)
     for imgdir, imgfile in iter_imgfiles(batch):
         try:
-            image = cv2.imread(imgfile)
-            table = layout_analysis(image, ocr)
             json_path = imgfile.replace(".full.png", ".json")
-            with open(json_path, "w") as output:
-                json.dump(table, output)
-            print(json_path, file=sys.stderr)
+            if not os.path.exists(json_path):
+                image = cv2.imread(imgfile)
+                table = layout_analysis(image, ocr)
+                with open(json_path, "w") as output:
+                    json.dump(table, output)
+                print(json_path, file=sys.stderr)
         except Exception as e:
             print(imgfile, e, file=sys.stderr)
 

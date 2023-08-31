@@ -42,12 +42,13 @@ def remove_lines(image, lpad=50, ksize=4, hsize=50):
 
 
 def read_image(imgfile):
-    origin_img = cv2.imread(imgfile)
-    if origin_img is not None:
-        gray = cv2.cvtColor(origin_img, cv2.COLOR_BGR2GRAY)
-        _, gray = cv2.threshold(gray, 254, 255, cv2.THRESH_BINARY|cv2.THRESH_OTSU)
-        gray = remove_lines(255 - gray)
-        return blur(gray, 2)
+    img = cv2.imread(imgfile)
+    if img is None:
+        return img
+    gray = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
+    _, gray = cv2.threshold(gray, 254, 255, cv2.THRESH_BINARY|cv2.THRESH_OTSU)
+    gray = remove_lines(255 - gray)
+    return blur(gray, 2)
 
 
 def check_intersection(boxA, boxB, margin):
@@ -55,10 +56,11 @@ def check_intersection(boxA, boxB, margin):
     y = max(boxA[1], boxB[1])
     w = min(boxA[0] + boxA[2], boxB[0] + boxB[2]) - x
     h = min(boxA[1] + boxA[3], boxB[1] + boxB[3]) - y
-    return w > -margin and h > -margin
+    marginX, marginY = margin
+    return w > -marginX and h > -marginY
 
 
-def merge_box(boxes, margin):
+def merge_box_s(boxes, margin):
     removed, added = set(), []
     for i in range(len(boxes)):
         for j in range(i+1, len(boxes)):
@@ -176,7 +178,8 @@ def check_table_position(table):
         ("entry", "structure", "fragment"),
         ("comp", "compd", "cmpd", "cpd"),
         ("compa", "compb", "compc", "compda", "compdb", "compdc", "compdd"),
-        ("id", "no",  "ex")
+        ("id", "no",  "ex"),
+        ("assay", "species")
     ]
 
     left, right = 0, 0
@@ -186,11 +189,12 @@ def check_table_position(table):
 
     title_last_row, table_first_row, table_last_row = 0, -1, -1
 
-    title_h = table[0][1] - table[0][0]
+    th = table[0][1] - table[0][0]
+    tw = max(table[0][2][0][1] - table[0][2][0][0], table_width-120)
     for i, (ymin,ymax,row) in enumerate(table):
         xmin, xmax, txt = row[0]
         w, h = xmax-xmin, ymax-ymin
-        if h < 1.1*title_h and xmin < left+10 and (len(row)<=2 or w>table_width*0.65):
+        if xmin < left + 2 * th and w > tw*0.55:
             title_last_row = i
         else:
             break
@@ -198,6 +202,11 @@ def check_table_position(table):
     for i, (ymin,ymax,row) in enumerate(table):
         if i > title_last_row and len(row) > 2:
             table_first_row = i
+
+    if table_first_row == -1:
+        for ymin,ymax,row in table:
+            if i > title_last_row and len(row) > 1:
+                table_first_row = i
 
     first_column = []
     for i, (ymin,ymax,row) in enumerate(table):
@@ -211,19 +220,22 @@ def check_table_position(table):
             break
 
     table_last_row = table_first_row
+    nr_col = len(table[table_first_row][2])
     for i, (ymin,ymax,row) in enumerate(table):
         if i > table_first_row:
             xmin, xmax, txt = row[0]
-            if xmin < left+10 and len(row) < 3:
+            if len(row) < 3 and xmin-xmax > 3 * table_width/nr_col:
+                break
+            if xmax-xmin > table_width*0.5 or len(txt.split()) > 8:
                 break
             table_last_row = i
 
-    return 0, table_first_row, table_last_row + 1
+    return title_last_row, table_first_row, table_last_row + 1
 
 
 def read_layout(layout_path):
     layout = json.load(layout_path)
-    layout = aligment(layout)
+    # layout = aligment(layout)
 
     title_ix, table_ix, note_ix = check_table_position(layout)
 
@@ -240,6 +252,7 @@ def process(imgfile, debug=False):
     layout, t_boxes, title_ix, table_ix, note_ix = read_layout(open(layout_path))
 
     if title_ix < 0 or table_ix < 0:
+        print(imgfile, title_ix, table_ix)
         return
 
     image = read_image(imgfile)
@@ -252,12 +265,10 @@ def process(imgfile, debug=False):
                 y1 = min(image.shape[0], ymax+1)
                 image[y0:y1,x0:x1] = 0
 
-    title, left = [], layout[0][2][0][0]
+    title = []
     for i in range(table_ix):
-        ymin, ymax, row = layout[i]
-        for xmin, xmax, txt in row:
-            if xmin < left + 100 and txt not in ["R", "R1", "R2", "NH", "H", "CH3"]:
-                title.append(txt)
+        xmin, xmax, txt = layout[i][2][0]
+        title.append(txt)
     title = " ".join(title)
 
     note = []
@@ -271,24 +282,26 @@ def process(imgfile, debug=False):
     table_y0 = layout[table_ix][0]
     table_y1 = layout[note_ix][0] if note_ix < len(layout) else image.shape[0]
 
-    s_boxes_temp = segment(image[title_y1:table_y0,])
-    r_boxes_temp = segment(image[table_y0:table_y1,])
-
     s_boxes = []
+    s_boxes_temp = segment(image[title_y1:table_y0,])
     for x,y,w,h in s_boxes_temp:
         y += title_y1
         if w > 100 and h > 100:
             s_boxes.append((x,y,w,h))
 
+    r_boxes = struct_search(image, t_boxes, table_y0, table_y1)
+    table, hl, vl = maketable(r_boxes, t_boxes)
+    return table, title, note, s_boxes, r_boxes, t_boxes
+
+def struct_search(image, t_boxes, table_y0, table_y1):
     r_boxes = []
+    r_boxes_temp = segment(image[table_y0:table_y1,])
     for x,y,w,h in r_boxes_temp:
         y += table_y0
         if w > 50 and h > 50:
             r_boxes.append((x,y,w,h))
-
-    merge_box(r_boxes, t_boxes)
-
-    table = maketable(r_boxes, t_boxes)
+    merge_box(r_boxes, t_boxes, (3,3))
+    table, hl, vl = maketable(r_boxes, t_boxes)
 
     rj = match_column(r_boxes, t_boxes)
     for j in range(1, len(table[0])):
@@ -296,8 +309,16 @@ def process(imgfile, debug=False):
         if cname in ("R", "R'", "R1", "R2", "R3", "R4", "X", "Y"):
             if j not in rj:
                 rj.append(j)
-
-    return table, title, note, s_boxes, r_boxes, t_boxes
+    for j in rj:
+        y_offset = hl[1][0]
+        r_boxes_temp = segment(image[y_offset:table_y1, vl[j][0]:vl[j][1]])
+        for x,y,w,h in r_boxes_temp:
+            if w > 10 and h > 10:
+                x += vl[j][0]
+                y += y_offset
+                r_boxes.append((x,y,w,h))
+    merge_box(r_boxes, t_boxes, (3,3))
+    return r_boxes
 
 def match_column(r_boxes, t_boxes):
     rvl = scanline(r_boxes, axis=0)
@@ -311,12 +332,12 @@ def match_column(r_boxes, t_boxes):
     return rj
 
 
-def merge_box(r_boxes, t_boxes):
+def merge_box(r_boxes, t_boxes, margin=1):
     valign(r_boxes)
     for i in range(len(t_boxes), 0, -1):
         drop = False
         for j in range(len(r_boxes)):
-            if check_intersection(t_boxes[i-1], r_boxes[j], 1):
+            if check_intersection(t_boxes[i-1], r_boxes[j], margin):
                 xa,ya,wa,ha = r_boxes[j][:4]
                 xb,yb,wb,hb = t_boxes[i-1][:4]
                 x1,x2 = min(xa, xb), max(xa+wa, xb+wb)
@@ -364,4 +385,4 @@ def maketable(r_boxes, t_boxes, shrink=0.1):
         j = locate(x,x+w,vl)
         table[i][j] = [x,y,w,h]
 
-    return table
+    return table, hl, vl
