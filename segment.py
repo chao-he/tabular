@@ -305,12 +305,13 @@ def struct_search(image, t_boxes, table_y0, table_y1):
 
     rj = match_column(r_boxes, t_boxes)
     for j in range(1, len(table[0])):
-        cname = table[0][j].upper()
-        if cname in ("R", "R'", "R1", "R2", "R3", "R4", "X", "Y"):
-            if j not in rj:
-                rj.append(j)
+        if isinstance(table[0][j], str):
+            cname = table[0][j].upper()
+            if cname in ("R", "R'", "R1", "R2", "R3", "R4", "X", "Y"):
+                if j not in rj:
+                    rj.append(j)
     for j in rj:
-        y_offset = hl[1][0]
+        y_offset = hl[1][0] if len(hl) > 1 else table_y0
         r_boxes_temp = segment(image[y_offset:table_y1, vl[j][0]:vl[j][1]])
         for x,y,w,h in r_boxes_temp:
             if w > 10 and h > 10:

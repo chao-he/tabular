@@ -57,7 +57,12 @@ def parse_table(doc):
     tables = []
     for imgfile in sorted(glob(f"{doc}/*.full.png")):
         try:
-            table, title, note, s_boxes, r_boxes, t_boxes = process(imgfile)
+            result = process(imgfile)
+            if result is None:
+                print(imgfile, ' parse fail')
+                continue
+
+            table, title, note, s_boxes, r_boxes, t_boxes = result
 
             image = cv2.imread(imgfile, 1)
             for x,y,w,h in s_boxes:
@@ -79,7 +84,7 @@ def parse_table(doc):
 
             tables.append({
                 "title": title, "note": note, "content": table,
-                "source": makepath(imgfile, ".dbg.png"),
+                "source": makepath(imgfile, ".dbg.png", True),
             })
 
             nr_row, nr_col = len(table), len(table[0])
@@ -87,7 +92,7 @@ def parse_table(doc):
                 for j in range(nr_col):
                     if isinstance(table[i][j], list):
                         x,y,w,h = table[i][j]
-                        src = makepath(imgfile, f".r.{x}_{y}_{w}_{h}.png")
+                        src = makepath(imgfile, f".r.{x}_{y}_{w}_{h}.png", True)
                         table[i][j] = f"<img width=\"{w//3}\" src=\"{src}\"/>"
             print(imgfile, nr_row, nr_col, "done")
         except Exception as e:
@@ -95,14 +100,17 @@ def parse_table(doc):
             traceback.print_exc()
     return tables
 
-def makepath(imgfile, suffix):
+def makepath(imgfile, suffix, only_basename=False):
+    if only_basename:
+        return os.path.basename(imgfile.replace(".full.png", suffix))
     return os.path.abspath(imgfile.replace(".full.png", suffix))
 
 
 if __name__ == "__main__":
     tpl = jinja2.Template(open("html/template.html").read())
-    for doc_root in glob("./tables/*"):
-        tables = parse_table(doc_root)
-        html = tpl.render(tables=tables)
-        with open(f"{doc_root}/index.html", "w") as output:
+    for doc in glob(f"{DOC_ROOT}/*"):
+        doi = os.path.basename(doc)
+        tables = parse_table(doc)
+        html = tpl.render(tables=tables, doi=doi)
+        with open(f"{doc}/index.html", "w") as output:
             output.write(html)
