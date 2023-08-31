@@ -12,9 +12,9 @@
 <body>
 <div class="container" class="mt-10">
 
+<div class="row" style="height:20px"><div class="col" id="status"></div></div>
+
 {% for table in tables %}
-
-
 <div class="row justify-content-start mb-5">
     <div class="col-5"><img class="img-fluid" src="{{table['source']}}"/></div>    
     <div class="col-6">
@@ -54,7 +54,9 @@
     $(function() {
         $("a.btn").on('click', function(event) {
             var data = $(this).attr("data");
-            $.get("/review?data=" + data, function(){alert(data)});
+            $.get("/review?data=" + data, function(){
+                $("#status").text("提交成功" + data);
+            });
             event.preventDefault();
         });
     });
