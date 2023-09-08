@@ -1,0 +1,43 @@
+[W 15:20:22.046 NotebookApp] Error loading server extension jupyter_nbextensions_configurator
+    Traceback (most recent call last):
+      File "/home/corp/chao.he/miniconda3/envs/cxxdev/lib/python3.10/site-packages/notebook/notebookapp.py", line 2047, in init_server_extensions
+        mod = importlib.import_module(modulename)
+      File "/home/corp/chao.he/miniconda3/envs/cxxdev/lib/python3.10/importlib/__init__.py", line 126, in import_module
+        return _bootstrap._gcd_import(name[level:], package, level)
+      File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+      File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+      File "<frozen importlib._bootstrap>", line 1004, in _find_and_load_unlocked
+    ModuleNotFoundError: No module named 'jupyter_nbextensions_configurator'
+[W 15:20:23.291 NotebookApp] Loading JupyterLab as a classic notebook (v6) extension.
+[W 2023-09-07 15:20:23.295 LabApp] 'ip' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2023-09-07 15:20:23.295 LabApp] 'port' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[W 2023-09-07 15:20:23.295 LabApp] 'port' has moved from NotebookApp to ServerApp. This config will be passed to ServerApp. Be sure to update your config before our next release.
+[I 2023-09-07 15:20:23.297 LabApp] JupyterLab extension loaded from /home/corp/chao.he/miniconda3/envs/cxxdev/lib/python3.10/site-packages/jupyterlab
+[I 2023-09-07 15:20:23.297 LabApp] JupyterLab application directory is /home/corp/chao.he/miniconda3/envs/cxxdev/share/jupyter/lab
+[I 15:20:23.301 NotebookApp] Serving notebooks from local directory: /home/corp/chao.he/tabular/notebook
+[I 15:20:23.301 NotebookApp] Jupyter Notebook 6.5.4 is running at:
+[I 15:20:23.301 NotebookApp] http://FEP-SERVER2:1025/?token=e03f5e4281225ade82f3de81de22bad4ad2271d69f52e57f
+[I 15:20:23.301 NotebookApp]  or http://127.0.0.1:1025/?token=e03f5e4281225ade82f3de81de22bad4ad2271d69f52e57f
+[I 15:20:23.301 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[C 15:20:30.613 NotebookApp] 
+    
+    To access the notebook, open this file in a browser:
+        file:///home/corp/chao.he/.local/share/jupyter/runtime/nbserver-6089-open.html
+    Or copy and paste one of these URLs:
+        http://FEP-SERVER2:1025/?token=e03f5e4281225ade82f3de81de22bad4ad2271d69f52e57f
+     or http://127.0.0.1:1025/?token=e03f5e4281225ade82f3de81de22bad4ad2271d69f52e57f
+[I 15:20:30.676 NotebookApp] Saving file at /jmc-article-stat.ipynb
+/home/corp/chao.he/miniconda3/envs/cxxdev/lib/python3.10/site-packages/nbformat/__init__.py:128: MissingIDFieldWarning: Code cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+/home/corp/chao.he/miniconda3/envs/cxxdev/lib/python3.10/site-packages/notebook/services/contents/manager.py:353: MissingIDFieldWarning: Code cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate_nb(model['content'])
+[W 15:20:33.489 NotebookApp] 404 GET /api/kernels/96bd4170-06af-4b4e-9060-c80f8eba3a1b/channels?session_id=ab210297480a45298f5cc1bc7ae99f9f (127.0.0.1): Kernel does not exist: 96bd4170-06af-4b4e-9060-c80f8eba3a1b
+[W 15:20:33.531 NotebookApp] 404 GET /api/kernels/96bd4170-06af-4b4e-9060-c80f8eba3a1b/channels?session_id=ab210297480a45298f5cc1bc7ae99f9f (127.0.0.1) 43.830000ms referer=None
+[W 15:20:35.352 NotebookApp] 404 GET /api/kernels/96bd4170-06af-4b4e-9060-c80f8eba3a1b/channels?session_id=ab210297480a45298f5cc1bc7ae99f9f (127.0.0.1): Kernel does not exist: 96bd4170-06af-4b4e-9060-c80f8eba3a1b
+[W 15:20:35.355 NotebookApp] 404 GET /api/kernels/96bd4170-06af-4b4e-9060-c80f8eba3a1b/channels?session_id=ab210297480a45298f5cc1bc7ae99f9f (127.0.0.1) 4.790000ms referer=None
+[W 15:20:38.420 NotebookApp] Notebook jmc-article-stat.ipynb is not trusted
+[W 15:20:38.588 NotebookApp] 404 GET /nbextensions/nbextensions_configurator/config_menu/main.js?v=20230907152021 (127.0.0.1) 8.060000ms referer=http://fep-server2:1025/notebooks/jmc-article-stat.ipynb
+[W 15:20:38.591 NotebookApp] 404 GET /nbextensions/pydeck/extension.js?v=20230907152021 (127.0.0.1) 9.730000ms referer=http://fep-server2:1025/notebooks/jmc-article-stat.ipynb
+[I 15:20:38.666 NotebookApp] Kernel started: bc29381b-b399-4bb9-b513-2f182719245a, name: python3
+[W 15:20:38.715 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20230907152021 (127.0.0.1) 2.910000ms referer=http://fep-server2:1025/notebooks/jmc-article-stat.ipynb
+[I 15:22:38.778 NotebookApp] Saving file at /jmc-article-stat.ipynb

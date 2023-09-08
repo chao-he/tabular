@@ -31,7 +31,7 @@ class TableBuilder:
         self.current_table = [(bbox, text)]
         self.is_right_page = 0 if bbox.x0 < 300 else 1
         self.max_y = bbox.y1
-        self.hh = bbox.height
+        self.hh = min(bbox.width, bbox.height)
 
     def update(self, bbox, text):
         if self.is_right_page and bbox.x0 < 300:

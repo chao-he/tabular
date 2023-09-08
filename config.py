@@ -1,4 +1,4 @@
 import os
 
-PDF_ROOT = os.path.expanduser("./papers")
-DOC_ROOT = os.path.expanduser("./tables")
+PDF_ROOT = os.path.expanduser("~/papers/discovery")
+DOC_ROOT = os.path.expanduser("~/papers/tables")

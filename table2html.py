@@ -92,8 +92,7 @@ def parse_table(doc):
                 for j in range(nr_col):
                     if isinstance(table[i][j], list):
                         x,y,w,h = table[i][j]
-                        src = makepath(imgfile, f".r.{x}_{y}_{w}_{h}.png", True)
-                        table[i][j] = f"<img width=\"{w//3}\" src=\"{src}\"/>"
+                        table[i][j] = makepath(imgfile, f".r.{x}_{y}_{w}_{h}.png", True)
             print(imgfile, nr_row, nr_col, "done")
         except Exception as e:
             import traceback
@@ -111,6 +110,9 @@ if __name__ == "__main__":
     for doc in glob(f"{DOC_ROOT}/*"):
         doi = os.path.basename(doc)
         tables = parse_table(doc)
-        html = tpl.render(tables=tables, doi=doi)
-        with open(f"{doc}/index.html", "w") as output:
-            output.write(html)
+        with open(f"data/{doi}.json", "w") as output:
+            json.dump(tables, output)
+
+        #html = tpl.render(tables=tables, doi=doi)
+        #with open(f"{doc}/index.html", "w") as output:
+        #    output.write(html)
