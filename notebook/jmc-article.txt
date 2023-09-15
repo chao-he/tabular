@@ -9,17 +9,22 @@ acs.jmedchem.0c00520	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c00547	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c00627	37.82	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c00756	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.0c00797	37.82	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.0c00932	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c00942	37.82	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c00964	37.82	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.0c00978	46.78	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.0c00982	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c01020	37.82	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c01023	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c01026	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.0c01035	37.82	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.0c01063	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c01065	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c01111	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c01125	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.0c01127	37.82	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
+acs.jmedchem.0c01179	46.78	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.0c01215	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c01226	37.82	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c01234	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
@@ -31,16 +36,21 @@ acs.jmedchem.0c01305	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c01328	37.82	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c01342	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c01345	37.82	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.0c01346	37.82	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.0c01354	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c01396	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c01398	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c01468	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.0c01489	46.78	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
+acs.jmedchem.0c01491	46.78	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.0c01494	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c01498	37.82	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.0c01518	37.82	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.0c01535	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c01541	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c01544	37.82	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c01550	37.82	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.0c01563	46.78	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.0c01576	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c01579	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c01588	37.82	11.39	496.99	Article	Journal of Medicinal Chemistry
@@ -51,21 +61,32 @@ acs.jmedchem.0c01705	37.82	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c01712	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c01733	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c01747	45.14	13.34	497.70	Article	Journal of Medicinal Chemistry
+acs.jmedchem.0c01754	37.82	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.0c01768	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c01775	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.0c01796	46.78	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.0c01806	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.0c01826	46.78	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.0c01835	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c01836	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c01837	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c01858	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.0c01863	46.78	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.0c01874	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c01878	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.0c01882	46.78	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
+acs.jmedchem.0c01886	46.78	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.0c01889	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.0c01895	46.78	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.0c01897	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.0c01917	46.78	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.0c01938	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.0c01955	46.78	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.0c01958	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c01965	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c01992	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.0c02005	46.78	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
+acs.jmedchem.0c02008	37.82	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.0c02018	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c02023	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c02024	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
@@ -74,6 +95,7 @@ acs.jmedchem.0c02041	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c02042	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c02044	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c02048	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.0c02081	46.78	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.0c02083	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c02085	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c02093	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
@@ -82,6 +104,7 @@ acs.jmedchem.0c02111	37.82	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c02126	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c02129	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c02150	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.0c02154	46.78	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.0c02177	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c02179	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.0c02184	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
@@ -102,6 +125,7 @@ acs.jmedchem.1c00040	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c00044	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c00046	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c00048	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.1c00049	46.78	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.1c00071	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c00082	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c00085	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
@@ -130,6 +154,7 @@ acs.jmedchem.1c00280	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c00303	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c00313	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c00339	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.1c00343	46.78	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.1c00359	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c00367	37.82	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c00373	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
@@ -140,10 +165,13 @@ acs.jmedchem.1c00388	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c00406	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c00412	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c00430	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.1c00434	46.78	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.1c00437	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c00441	37.82	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c00448	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c00472	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.1c00489	46.78	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
+acs.jmedchem.1c00511	46.78	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.1c00533	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c00551	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c00566	37.82	11.39	496.99	Article	Journal of Medicinal Chemistry
@@ -152,8 +180,10 @@ acs.jmedchem.1c00569	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c00575	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c00586	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c00596	37.82	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.1c00599	46.78	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.1c00604	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c00607	37.82	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.1c00613	37.82	11.39	496.99	Featured article	Journal of Medicinal Chemistry
 acs.jmedchem.1c00625	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c00633	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c00672	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
@@ -162,8 +192,10 @@ acs.jmedchem.1c00679	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c00682	37.82	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c00686	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c00696	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.1c00703	46.78	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.1c00710	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c00712	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.1c00713	46.78	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.1c00721	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c00722	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c00731	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
@@ -186,6 +218,7 @@ acs.jmedchem.1c00882	37.82	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c00888	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c00904	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c00905	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.1c00926	37.82	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.1c00932	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c00935	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c00944	37.82	11.39	496.99	Article	Journal of Medicinal Chemistry
@@ -204,6 +237,7 @@ acs.jmedchem.1c01014	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c01015	37.82	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c01026	37.82	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c01066	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.1c01067	46.78	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.1c01082	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c01093	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c01099	37.82	11.39	496.99	Article	Journal of Medicinal Chemistry
@@ -214,31 +248,39 @@ acs.jmedchem.1c01121	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c01132	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c01154	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c01156	37.82	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.1c01170	38.05	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.1c01171	37.82	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c01184	37.82	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c01196	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.1c01205	37.82	11.39	496.99	Featured article	Journal of Medicinal Chemistry
 acs.jmedchem.1c01206	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c01207	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c01219	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c01227	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c01245	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c01249	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.1c01256	46.78	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.1c01257	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c01272	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.1c01279	46.78	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.1c01280	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c01287	37.82	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.1c01290	46.78	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.1c01293	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c01300	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c01305	37.82	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c01308	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.1c01319	46.78	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.1c01336	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c01350	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c01351	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c01356	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c01382	37.82	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.1c01403	37.82	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.1c01411	37.82	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c01416	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c01436	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.1c01444	46.78	11.39	496.99	Featured article	Journal of Medicinal Chemistry
 acs.jmedchem.1c01451	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c01452	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c01458	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
@@ -275,7 +317,9 @@ acs.jmedchem.1c01845	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c01849	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c01863	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c01871	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.1c01887	38.05	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.1c01898	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.1c01900	38.05	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.1c01909	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c01912	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c01938	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
@@ -283,12 +327,14 @@ acs.jmedchem.1c01968	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c01977	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c01979	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c01986	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.1c01995	38.05	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.1c01999	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c02001	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c02006	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c02012	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c02013	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c02019	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.1c02045	38.05	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.1c02048	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c02057	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c02058	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
@@ -299,7 +345,11 @@ acs.jmedchem.1c02078	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c02102	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c02110	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c02113	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.1c02131	38.05	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.1c02132	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.1c02141	37.22	12.22	496.95	Drug annotation	Journal of Medicinal Chemistry
+acs.jmedchem.1c0214	37.22	12.22	496.95	Drug annotation	Journal of Medicinal Chemistry
+acs.jmedchem.1c02148	38.05	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.1c02150	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c02153	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.1c02154	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
@@ -323,6 +373,7 @@ acs.jmedchem.2c00077	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00095	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00100	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00101	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.2c00117	38.05	11.39	496.99	Featured article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00118	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00135	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00144	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
@@ -339,13 +390,16 @@ acs.jmedchem.2c00289	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00308	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00324	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00356	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.2c00359	38.05	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.2c00369	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00384	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00388	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00390	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.2c00402	38.05	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.2c00406	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00408	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00413	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.2c00422	38.05	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.2c00442	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00468	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00469	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
@@ -354,26 +408,33 @@ acs.jmedchem.2c00508	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00509	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00523	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00525	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.2c00527	38.05	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.2c00534	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00539	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00548	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00549	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.2c00552	37.22	12.22	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.2c00562	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00568	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00572	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00604	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.2c00609	37.22	12.22	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.2c00613	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00634	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00641	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.2c00660	37.22	12.22	496.95	Drug annotation	Journal of Medicinal Chemistry
+acs.jmedchem.2c00668	37.22	12.22	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.2c00670	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00675	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00676	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00677	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00681	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00702	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.2c00704	37.22	12.22	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.2c00709	38.05	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00733	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00739	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.2c00741	37.22	12.22	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.2c00785	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00791	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00794	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
@@ -382,11 +443,15 @@ acs.jmedchem.2c00807	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00817	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00820	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00830	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.2c00834	37.22	12.22	496.95	Drug annotation	Journal of Medicinal Chemistry
+acs.jmedchem.2c00851	37.22	12.22	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.2c00866	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.2c00879	37.22	12.22	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.2c00893	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00902	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00904	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00912	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.2c00921	37.22	12.22	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.2c00922	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00926	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00947	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
@@ -396,6 +461,7 @@ acs.jmedchem.2c00981	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c00986	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c01000	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c01003	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.2c01026	37.22	12.22	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.2c01056	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c01058	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c01081	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
@@ -410,6 +476,7 @@ acs.jmedchem.2c01179	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c01192	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c01198	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c01199	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.2c01200	37.22	12.22	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.2c01202	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c01233	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c01243	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
@@ -443,6 +510,7 @@ acs.jmedchem.2c01485	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c01497	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c01499	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c01505	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.2c01521	37.22	12.22	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.2c01551	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c01554	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c01566	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
@@ -457,6 +525,7 @@ acs.jmedchem.2c01631	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c01632	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c01641	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c01643	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.2c01658	37.22	12.22	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.2c01661	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c01663	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c01665	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
@@ -493,6 +562,7 @@ acs.jmedchem.2c01990	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c01996	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c01997	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c02003	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.2c02012	37.22	12.22	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.2c02032	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c02045	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c02058	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
@@ -504,6 +574,7 @@ acs.jmedchem.2c02132	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.2c02135	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.3c00003	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.3c00011	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.3c00030	37.22	12.22	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.3c00050	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.3c00058	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.3c00064	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
@@ -526,8 +597,15 @@ acs.jmedchem.3c00287	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.3c00322	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.3c00348	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.3c00436	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.3c00456	37.22	12.22	496.95	Drug annotation	Journal of Medicinal Chemistry
+acs.jmedchem.3c00510	37.22	12.22	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.3c00525	37.22	12.22	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.3c00623	37.22	12.22	496.95	Drug annotation	Journal of Medicinal Chemistry
+acs.jmedchem.3c00698	37.22	12.22	496.95	Drug annotation	Journal of Medicinal Chemistry
+acs.jmedchem.3c00750	37.22	12.22	496.95	Drug annotation	Journal of Medicinal Chemistry
+acs.jmedchem.5b00067	46.82	11.35	496.93	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.5b00098	37.86	11.35	496.93	Article	Journal of Medicinal Chemistry
+acs.jmedchem.5b00127	46.82	11.35	496.93	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.5b00132	37.86	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.5b00139	37.86	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.5b00171	37.86	11.35	496.93	Article	Journal of Medicinal Chemistry
@@ -539,6 +617,8 @@ acs.jmedchem.5b00283	37.86	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.5b00303	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.5b00313	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.5b00450	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
+acs.jmedchem.5b00458	46.82	11.35	496.93	Brief article	Journal of Medicinal Chemistry
+acs.jmedchem.5b00498	37.86	11.35	496.93	Brief article	Journal of Medicinal Chemistry
 acs.jmedchem.5b00507	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.5b00515	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.5b00577	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
@@ -550,6 +630,7 @@ acs.jmedchem.5b00772	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.5b00851	37.86	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.5b00867	37.86	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.5b00963	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
+acs.jmedchem.5b00983	37.86	11.35	496.93	Brief article	Journal of Medicinal Chemistry
 acs.jmedchem.5b01005	37.86	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.5b01006	37.86	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.5b01011	37.86	11.35	496.93	Article	Journal of Medicinal Chemistry
@@ -557,6 +638,7 @@ acs.jmedchem.5b01029	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.5b01072	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.5b01102	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.5b01105	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
+acs.jmedchem.5b01275	37.86	11.35	496.93	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.5b01342	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.5b01345	37.86	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.5b01363	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
@@ -566,6 +648,7 @@ acs.jmedchem.5b01441	37.86	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.5b01552	37.86	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.5b01558	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.5b01631	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
+acs.jmedchem.5b01647	37.86	11.35	496.93	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.5b01674	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.5b01685	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.5b01741	37.86	11.35	496.93	Article	Journal of Medicinal Chemistry
@@ -575,7 +658,10 @@ acs.jmedchem.5b01811	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.5b01985	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.6b00052	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.6b00064	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
+acs.jmedchem.6b00191	46.82	11.35	496.93	Brief article	Journal of Medicinal Chemistry
 acs.jmedchem.6b00200	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
+acs.jmedchem.6b00247	46.82	11.35	496.93	Brief article	Journal of Medicinal Chemistry
+acs.jmedchem.6b00307	37.86	11.35	496.93	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.6b00459	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.6b00469	37.86	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.6b00487	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
@@ -600,6 +686,7 @@ acs.jmedchem.6b01521	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.6b01543	37.86	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.6b01662	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.6b01665	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
+acs.jmedchem.6b01706	37.86	11.35	496.93	Brief article	Journal of Medicinal Chemistry
 acs.jmedchem.6b01796	37.86	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.6b01816	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.7b00045	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
@@ -615,6 +702,7 @@ acs.jmedchem.7b00449	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.7b00463	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.7b00604	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.7b00631	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
+acs.jmedchem.7b00694	46.82	11.35	496.93	Brief article	Journal of Medicinal Chemistry
 acs.jmedchem.7b00709	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.7b00807	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.7b00825	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
@@ -625,6 +713,7 @@ acs.jmedchem.7b00974	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.7b01028	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.7b01050	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.7b01236	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
+acs.jmedchem.7b01337	46.82	11.35	496.93	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.7b01344	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.7b01371	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.7b01530	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
@@ -637,13 +726,16 @@ acs.jmedchem.8b00007	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.8b00060	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.8b00070	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 acs.jmedchem.8b00190	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
+acs.jmedchem.8b00374	46.82	11.35	496.93	Brief article	Journal of Medicinal Chemistry
 acs.jmedchem.8b00375	46.78	11.39	497.00	Article	Journal of Medicinal Chemistry
 acs.jmedchem.8b00483	46.78	11.39	497.00	Article	Journal of Medicinal Chemistry
+acs.jmedchem.8b00494	37.86	11.35	496.93	Brief article	Journal of Medicinal Chemistry
 acs.jmedchem.8b00506	37.82	11.39	497.00	Article	Journal of Medicinal Chemistry
 acs.jmedchem.8b00510	46.78	11.39	497.00	Article	Journal of Medicinal Chemistry
 acs.jmedchem.8b00633	46.78	11.39	497.00	Article	Journal of Medicinal Chemistry
 acs.jmedchem.8b00690	46.78	11.39	497.00	Article	Journal of Medicinal Chemistry
 acs.jmedchem.8b00736	37.82	11.39	497.00	Article	Journal of Medicinal Chemistry
+acs.jmedchem.8b00741	46.78	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.8b00885	46.78	11.39	497.00	Article	Journal of Medicinal Chemistry
 acs.jmedchem.8b00909	46.78	11.39	497.00	Article	Journal of Medicinal Chemistry
 acs.jmedchem.8b00917	37.82	11.39	497.00	Article	Journal of Medicinal Chemistry
@@ -659,11 +751,17 @@ acs.jmedchem.8b01868	46.78	11.39	497.00	Article	Journal of Medicinal Chemistry
 acs.jmedchem.8b01958	46.78	11.39	497.00	Article	Journal of Medicinal Chemistry
 acs.jmedchem.9b00021	37.82	11.39	497.00	Article	Journal of Medicinal Chemistry
 acs.jmedchem.9b00144	46.78	11.39	497.00	Article	Journal of Medicinal Chemistry
+acs.jmedchem.9b00193	46.78	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
+acs.jmedchem.9b00218	46.78	11.39	496.99	Brief article	Journal of Medicinal Chemistry
+acs.jmedchem.9b0032	46.78	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
+acs.jmedchem.9b00327	46.78	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.9b00444	46.78	11.39	497.00	Article	Journal of Medicinal Chemistry
 acs.jmedchem.9b00522	46.78	11.39	497.00	Article	Journal of Medicinal Chemistry
+acs.jmedchem.9b00575	46.78	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.9b00656	46.78	11.39	497.00	Article	Journal of Medicinal Chemistry
 acs.jmedchem.9b00673	46.78	11.39	497.00	Article	Journal of Medicinal Chemistry
 acs.jmedchem.9b00812	37.82	11.39	497.00	Article	Journal of Medicinal Chemistry
+acs.jmedchem.9b00969	46.78	11.39	496.99	Brief article	Journal of Medicinal Chemistry
 acs.jmedchem.9b01003	46.78	11.39	497.00	Article	Journal of Medicinal Chemistry
 acs.jmedchem.9b01034	46.78	11.39	497.00	Article	Journal of Medicinal Chemistry
 acs.jmedchem.9b01090	46.78	11.39	497.00	Article	Journal of Medicinal Chemistry
@@ -680,17 +778,32 @@ acs.jmedchem.9b01411	46.78	11.39	497.00	Article	Journal of Medicinal Chemistry
 acs.jmedchem.9b01429	46.78	11.39	497.00	Article	Journal of Medicinal Chemistry
 acs.jmedchem.9b01439	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.9b01460	46.78	11.39	497.00	Article	Journal of Medicinal Chemistry
+acs.jmedchem.9b01478	46.78	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.9b01624	37.82	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.9b01649	46.78	11.39	496.99	Brief article	Journal of Medicinal Chemistry
 acs.jmedchem.9b01663	45.14	13.34	497.70	Article	Journal of Medicinal Chemistry
 acs.jmedchem.9b01670	46.78	11.39	497.00	Article	Journal of Medicinal Chemistry
 acs.jmedchem.9b01681	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.9b01733	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.9b01852	37.82	11.39	496.99	Article	Journal of Medicinal Chemistry
+acs.jmedchem.9b01870	46.78	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
+acs.jmedchem.9b01916	46.78	11.39	496.99	Featured article	Journal of Medicinal Chemistry
+acs.jmedchem.9b02035	46.78	11.39	496.95	Drug annotation	Journal of Medicinal Chemistry
 acs.jmedchem.9b02076	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.9b02107	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.9b02121	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.9b02123	46.78	11.39	496.99	Article	Journal of Medicinal Chemistry
 acs.jmedchem.9b02164	37.82	11.39	496.99	Article	Journal of Medicinal Chemistry
+jm0210008	24.91	11.75	502.94	Brief articles	Journal of Medicinal Chemistry, 2003, Vol. 46, No. 1
+jm031099y	24.92	11.75	502.94	Brief articles	Journal of Medicinal Chemistry, 2004, Vol. 47, No. 11
+jm040154f	25.39	10.50	502.94	Brief articles	Journal of Medicinal Chemistry, 2005, Vol. 48, No. 6
+jm060020x	24.91	11.75	502.91	Brief articles	Journal of Medicinal Chemistry, 2006, Vol. 49, No. 19
+jm060257t	24.91	11.75	502.91	Brief articles	Journal of Medicinal Chemistry, 2006, Vol. 49, No. 11
+jm060777o	24.91	11.75	502.90	Brief articles	Journal of Medicinal Chemistry, 2006, Vol. 49, No. 21
+jm061160+	24.91	11.75	502.91	Brief articles	Journal of Medicinal Chemistry, 2007, Vol. 50, No. 7
+jm061333v	24.91	11.75	502.90	Brief articles	Journal of Medicinal Chemistry, 2007, Vol. 50, No. 11
+jm061436d	24.91	11.75	502.91	Brief articles	Journal of Medicinal Chemistry, 2007, Vol. 50, No. 8
+jm100022r	30.87	8.47	502.11	Brief article	Journal of Medicinal Chemistry, 2010, Vol. 53, No. 6
 jm100023j	30.87	8.47	502.11	Article	Journal of Medicinal Chemistry, 2010, Vol. 53, No. 10
 jm100039a	30.87	8.47	502.11	Article	Journal of Medicinal Chemistry, 2010, Vol. 53, No. 9
 jm100044a	30.87	8.47	502.11	Article	Journal of Medicinal Chemistry, 2010, Vol. 53, No. 11
@@ -720,10 +833,13 @@ jm100941j	30.87	8.47	502.11	Article	Journal of Medicinal Chemistry, 2010, Vol. 5
 jm101007q	41.42	12.04	495.18	Article	Journal of Medicinal Chemistry
 jm101023r	41.42	12.04	495.18	Article	Journal of Medicinal Chemistry
 jm101072y	30.87	8.47	502.13	Article	Journal of Medicinal Chemistry, 2011, Vol. 54, No. 1
+jm101080v	30.87	8.47	502.11	Brief article	Journal of Medicinal Chemistry, 2010, Vol. 53, No. 24
+jm1011269	30.87	8.47	502.11	Brief article	Journal of Medicinal Chemistry, 2010, Vol. 53, No. 24
 jm1011319	30.87	8.47	502.13	Article	Journal of Medicinal Chemistry, 2011, Vol. 54, No. 1
 jm101144f	30.87	8.47	502.11	Article	Journal of Medicinal Chemistry, 2010, Vol. 53, No. 19
 jm1011963	30.87	8.47	502.13	Article	Journal of Medicinal Chemistry, 2011, Vol. 54, No. 1
 jm101202j	41.42	12.04	495.18	Article	Journal of Medicinal Chemistry
+jm101271s	30.87	8.47	502.11	Brief article	Journal of Medicinal Chemistry, 2011, Vol. 54, No. 4
 jm1012903	41.42	12.04	495.18	Article	Journal of Medicinal Chemistry
 jm101336m	41.42	12.04	495.18	Article	Journal of Medicinal Chemistry
 jm101382t	41.42	12.04	495.18	Article	Journal of Medicinal Chemistry
@@ -736,6 +852,7 @@ jm101499u	41.42	12.04	495.18	Article	Journal of Medicinal Chemistry
 jm101520v	41.42	12.04	495.18	Article	Journal of Medicinal Chemistry
 jm101580m	41.42	12.04	495.18	Article	Journal of Medicinal Chemistry
 jm101609j	41.42	12.04	495.18	Article	Journal of Medicinal Chemistry
+jm1016494	41.42	12.04	495.18	Brief article	Journal of Medicinal Chemistry
 jm101655d	41.42	12.04	495.18	Article	Journal of Medicinal Chemistry
 jm200006c	41.42	12.04	495.18	Article	Journal of Medicinal Chemistry
 jm200046z	41.42	12.04	495.18	Article	Journal of Medicinal Chemistry
@@ -813,7 +930,9 @@ jm201715d	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm201720d	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm201724m	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm300025r	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
+jm300040p	46.82	11.35	496.93	Brief article	Journal of Medicinal Chemistry
 jm300042x	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
+jm300060k	46.82	11.35	496.93	Featured article	Journal of Medicinal Chemistry
 jm300063b	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm300069y	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm300101n	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
@@ -821,6 +940,7 @@ jm300122u	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm300123s	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm300146f	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm300204j	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
+jm300215x	46.82	11.35	496.93	Brief article	Journal of Medicinal Chemistry
 jm300241b	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm300247y	37.86	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm3002718	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
@@ -836,6 +956,7 @@ jm300452p	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm300460c	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm3004619	37.86	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm3005543	37.86	11.35	496.93	Article	Journal of Medicinal Chemistry
+jm300564b	37.86	11.35	496.93	Brief article	Journal of Medicinal Chemistry
 jm300573d	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm300579z	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm300592r	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
@@ -846,6 +967,7 @@ jm3006788	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm300679u	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm300681r	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm300689c	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
+jm300700v	46.82	11.35	496.93	Brief article	Journal of Medicinal Chemistry
 jm300713s	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm3007933	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm300833h	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
@@ -856,6 +978,7 @@ jm300896d	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm300911g	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm300967g	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm300969t	37.87	11.35	496.93	Article	Journal of Medicinal Chemistry
+jm301020q	46.82	11.35	496.93	Featured article	Journal of Medicinal Chemistry
 jm301022v	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm301024w	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm301032j	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
@@ -867,10 +990,13 @@ jm301177j	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm3011806	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm3012239	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm301226a	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
+jm301258w	37.86	11.35	496.93	Brief article	Journal of Medicinal Chemistry
 jm301268u	37.86	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm3012933	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm301404a	37.86	11.35	496.93	Article	Journal of Medicinal Chemistry
+jm301448p	46.82	11.35	496.93	Featured article	Journal of Medicinal Chemistry
 jm301470a	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
+jm301474t	46.82	11.35	496.93	Brief article	Journal of Medicinal Chemistry
 jm301511h	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm301580n	37.86	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm301619u	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
@@ -903,6 +1029,7 @@ jm400394s	37.86	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm400416u	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm400459m	37.86	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm400485e	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
+jm400487c	37.86	11.35	496.93	Brief article	Journal of Medicinal Chemistry
 jm400556w	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm400778d	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm400781h	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
@@ -917,6 +1044,7 @@ jm401195n	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm4012643	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm401266k	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm401274b	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
+jm4013246	37.86	11.35	496.93	Brief article	Journal of Medicinal Chemistry
 jm401328u	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm401329s	37.86	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm401333u	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
@@ -946,11 +1074,15 @@ jm4017762	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm401788m	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm401840s	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm401877m	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
+jm401905m	46.82	11.35	496.93	Brief article	Journal of Medicinal Chemistry
 jm401908w	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm401919s	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
+jm4019299	46.82	11.35	496.93	Drug annotation	Journal of Medicinal Chemistry
+jm401931e	46.82	11.35	496.93	Drug annotation	Journal of Medicinal Chemistry
 jm401958n	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm4019614	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm401990s	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
+jm401992e	37.86	11.35	496.93	Drug annotation	Journal of Medicinal Chemistry
 jm500024v	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm500034j	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm5000529	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
@@ -963,12 +1095,15 @@ jm500126s	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm500135c	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm500147k	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm500155b	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
+jm500176w	46.82	11.35	496.93	Drug annotation	Journal of Medicinal Chemistry
 jm500183r	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm500228a	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm5002502	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm5002748	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm5002919	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm5002937	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
+jm500335h	37.86	11.35	496.93	Drug annotation	Journal of Medicinal Chemistry
+jm500378a	37.86	11.35	496.93	Drug annotation	Journal of Medicinal Chemistry
 jm500455p	37.86	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm5004599	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm500487d	37.86	11.35	496.93	Article	Journal of Medicinal Chemistry
@@ -979,8 +1114,11 @@ jm500521n	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm500599s	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm5006226	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm500669m	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
+jm500684r	37.86	11.35	496.93	Brief article	Journal of Medicinal Chemistry
 jm500713j	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm5007275	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
+jm500747h	37.86	11.35	496.93	Brief article	Journal of Medicinal Chemistry
+jm500766w	37.86	11.35	496.93	Drug annotation	Journal of Medicinal Chemistry
 jm500777s	37.86	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm5007929	37.86	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm500802j	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
@@ -991,19 +1129,25 @@ jm500847m	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm500871s	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm500916t	37.86	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm500951r	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
+jm500973a	46.82	11.35	496.93	Drug annotation	Journal of Medicinal Chemistry
 jm500981k	37.86	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm501003k	37.86	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm501038s	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm501145a	37.86	11.35	496.93	Article	Journal of Medicinal Chemistry
+jm501175v	46.82	11.35	496.93	Drug annotation	Journal of Medicinal Chemistry
 jm501179r	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm501195e	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm501204z	37.86	11.35	496.93	Article	Journal of Medicinal Chemistry
+jm501239f	46.82	11.35	496.93	Drug annotation	Journal of Medicinal Chemistry
+jm5012808	46.82	11.35	496.93	Featured article	Journal of Medicinal Chemistry
 jm5012885	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm501313x	37.86	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm5013648	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
+jm501375c	46.82	11.35	496.93	Brief article	Journal of Medicinal Chemistry
 jm5013984	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm5014055	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm501436m	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
+jm501482t	46.82	11.35	496.93	Brief article	Journal of Medicinal Chemistry
 jm501531v	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm501550p	37.86	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm501578n	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
@@ -1015,13 +1159,22 @@ jm5017413	37.86	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm5017494	37.86	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm501778s	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm5018187	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
+jm5018237	37.86	11.35	496.93	Drug annotation	Journal of Medicinal Chemistry
 jm501913a	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
+jm501915g	46.82	11.35	496.93	Drug annotation	Journal of Medicinal Chemistry
 jm501921k	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
 jm501982k	46.82	11.35	496.93	Article	Journal of Medicinal Chemistry
+jm7010589	20.84	9.80	504.03	Brief articles	Journal of Medicinal Chemistry, 2008, Vol. 51, No. 4
+jm7013309	20.84	9.80	504.02	Brief articles	Journal of Medicinal Chemistry, 2008, Vol. 51, No. 6
+jm800150d	20.84	9.80	504.03	Brief articles	Journal of Medicinal Chemistry, 2008, Vol. 51, No. 14
+jm801178c	20.84	9.80	504.02	Brief articles	Journal of Medicinal Chemistry, 2009, Vol. 52, No. 4
 jm8013772	30.87	8.47	502.11	Article	Journal of Medicinal Chemistry, 2009, Vol. 52, No. 14
+jm801572m	20.84	9.80	504.02	Brief articles	Journal of Medicinal Chemistry, 2009, Vol. 52, No. 7
+jm9000117	20.84	9.80	504.02	Brief articles	Journal of Medicinal Chemistry, 2009, Vol. 52, No. 9
 jm900132z	30.87	8.47	502.11	Article	Journal of Medicinal Chemistry, 2009, Vol. 52, No. 16
 jm900230j	30.87	8.47	502.11	Article	Journal of Medicinal Chemistry, 2009, Vol. 52, No. 14
 jm900305z	30.87	8.47	502.11	Article	Journal of Medicinal Chemistry, 2009, Vol. 52, No. 14
+jm9004016	20.83	9.80	504.03	Brief articles	Journal of Medicinal Chemistry, 2009, Vol. 52, No. 13
 jm900471u	30.87	8.47	502.11	Article	Journal of Medicinal Chemistry, 2009, Vol. 52, No. 14
 jm900521k	30.87	8.47	502.11	Article	Journal of Medicinal Chemistry, 2009, Vol. 52, No. 16
 jm900553j	30.87	8.47	502.11	Article	Journal of Medicinal Chemistry, 2009, Vol. 52, No. 19
@@ -1039,4 +1192,5 @@ jm9015075	30.87	8.47	502.11	Article	Journal of Medicinal Chemistry, 2010, Vol. 5
 jm901618d	30.87	8.47	502.11	Article	Journal of Medicinal Chemistry, 2010, Vol. 53, No. 5
 jm9016812	30.87	8.47	502.11	Article	Journal of Medicinal Chemistry, 2010, Vol. 53, No. 7
 jm9017543	30.87	8.47	502.11	Article	Journal of Medicinal Chemistry, 2010, Vol. 53, No. 6
+jm901797p	30.87	8.47	502.11	Brief article	Journal of Medicinal Chemistry, 2010, Vol. 53, No. 8
 jm901860h	30.87	8.47	502.11	Article	Journal of Medicinal Chemistry, 2010, Vol. 53, No. 7
