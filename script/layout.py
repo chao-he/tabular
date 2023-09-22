@@ -1,3 +1,4 @@
+import os
 import sys
 import json
 import numpy as np
@@ -110,7 +111,11 @@ def aligment(boxes):
 
 
 def read_layout(fpath):
-    layout = aligment(json.load(open(fpath))["text"])
+    if isinstance(fpath, list):
+        data = fpath
+    else:
+        data = json.load(open(fpath))["text"]
+    layout = aligment(data)
     title_ix, table_ix, note_ix = check_table_position(layout)
     t_boxes = []
     for y0, y1, row in layout[table_ix:note_ix]:
@@ -120,7 +125,8 @@ def read_layout(fpath):
 
 
 if __name__ == "__main__":
-    layout, tbs, tix, cid, nix = read_layout(sys.argv[1])
-    for y0, y1, row in layout:
-        txt = '\t'.join([col for x0, x1, col in row])
-        print(f"{txt}")
+    import sys
+    layout, tboxes, tix, cid, nix = read_layout(sys.argv[1])
+    for _,_, row in layout:
+        print([t for _,_,t in row])
+

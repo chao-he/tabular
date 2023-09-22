@@ -145,7 +145,7 @@ def extract_tables2(source, target):
                 if direction == 1:
                     image = cv2.rotate(image, cv2.ROTATE_90_CLOCKWISE)
 
-                imgpath = f"images/{doi}/{doi}.table.{tix}.png"
+                imgpath = f"{doi}.table.{tix}.png"
                 parsed_doc["tables"].append({
                     "index": tix,
                     "title": title,
